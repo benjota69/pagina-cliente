@@ -6,6 +6,7 @@ import BeforeAfter from "./BeforeAfter";
 import Presupuesto from "./PresupuestoWizard";
 import Footer from "./Footer";
 import Testimonios from "./Testimonios";
+import WhatsappButton from "./WhatsappButton";
 
 export default function LandingPage() {
   return (
@@ -29,7 +30,8 @@ export default function LandingPage() {
         <Testimonios />
       {/* PRESUPUESTO PRO */}
       <Presupuesto />
-
+         {/* BOTÓN DE WHATSAPP */}
+        <WhatsappButton />
       {/* FOOTER */}
       <Footer />
 
