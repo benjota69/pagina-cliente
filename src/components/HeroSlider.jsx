@@ -1,16 +1,50 @@
+import { useEffect, useState } from "react";
+
+const slides = [
+  "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp",
+  "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp",
+  "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp",
+  "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp",
+];
+
 export default function HeroSlider() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % slides.length);
+    }, 4500); // tiempo entre cambios (ms)
+
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section className="relative h-[85vh] flex items-center justify-center text-center text-white bg-slate-900 overflow-hidden">
+    <section className="relative h-[85vh] w-full overflow-hidden">
+      {/* Fondo (slider) */}
+      <div className="absolute inset-0">
+        {slides.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`slide ${i + 1}`}
+            className={[
+              "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out",
+              i === index ? "opacity-100" : "opacity-0",
+            ].join(" ")}
+          />
+        ))}
+      </div>
 
-      {/* Fondo con overlay */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1562259949-e8e7689d7828')] bg-cover bg-center opacity-40" />
+      {/* Overlay oscuro */}
+      <div className="absolute inset-0 bg-black/50"></div>
 
-      <div className="relative z-10 max-w-3xl px-6">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      {/* Texto centrado */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center text-white px-6">
+        <h1 className="text-4xl md:text-6xl font-black mb-6">
           Pintura Profesional
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-200 mb-8">
+        <p className="text-lg md:text-xl text-gray-200 mb-8">
           Interior · Exterior · Terminaciones finas · Trabajo limpio y garantizado
         </p>
 
