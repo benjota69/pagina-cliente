@@ -7,7 +7,9 @@ const slides = [
   "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp",
 ];
 
-export default function HeroSlider() {
+
+export default function HeroSlider({ onOpenPresupuesto }) {
+>>>>>>> f8c9a33 (Integración del PresupuestoWizard como modal y mejoras en interacción)
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -48,12 +50,12 @@ export default function HeroSlider() {
           Interior · Exterior · Terminaciones finas · Trabajo limpio y garantizado
         </p>
 
-        <a
-          href="#presupuesto"
+        <button
+          onClick={() => (onOpenPresupuesto ? onOpenPresupuesto() : (window.location.hash = 'presupuesto'))}
           className="bg-blue-600 hover:bg-blue-700 transition px-8 py-4 rounded-xl font-semibold"
         >
           Solicitar evaluación gratuita
-        </a>
+        </button>
       </div>
     </section>
   );

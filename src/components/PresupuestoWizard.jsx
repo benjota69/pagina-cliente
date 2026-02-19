@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function PresupuestoWizard() {
+export default function PresupuestoWizard({ onClose }) {
   const [step, setStep] = useState(1);
   const [tipo, setTipo] = useState("Interior");
   const [metros, setMetros] = useState(60);
@@ -15,12 +15,24 @@ export default function PresupuestoWizard() {
       <div className="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
 
         {/* HEADER */}
-        <h2 className="text-2xl font-bold mb-2 text-center">
-          Solicitar evaluación
-        </h2>
-        <p className="text-gray-500 text-center mb-6 text-sm">
-          Cuéntanos tu proyecto y te contactaremos con una evaluación profesional
-        </p>
+        <div className="flex items-start justify-between mb-2">
+          <div>
+            <h2 className="text-2xl font-bold text-left">Solicitar evaluación</h2>
+            <p className="text-gray-500 mb-6 text-sm">
+              Cuéntanos tu proyecto y te contactaremos con una evaluación profesional
+            </p>
+          </div>
+
+          <div>
+            <button
+              onClick={() => onClose && onClose()}
+              className="text-gray-400 hover:text-gray-600 ml-4"
+              aria-label="Cerrar formulario"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
 
         {/* STEP 1 — PROYECTO */}
         {step === 1 && (
@@ -180,7 +192,10 @@ export default function PresupuestoWizard() {
                 Volver
               </button>
 
-              <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold">
+              <button
+                onClick={() => onClose && onClose()}
+                className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-semibold"
+              >
                 Enviar solicitud
               </button>
             </div>
