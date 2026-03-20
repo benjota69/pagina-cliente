@@ -8,7 +8,7 @@ export default function Procesos() {
   ];
 
   return (
-    <section className="py-20 bg-base-200">
+    <section id="proceso" className="py-20 bg-base-200">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center">Cómo trabajamos</h2>
         <p className="text-center opacity-70 mt-3">

@@ -1,97 +1,137 @@
-import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, PaintBucket } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [open,     setOpen]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  // Sombra al hacer scroll
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  // Cerrar menú móvil al cambiar de ruta
+  useEffect(() => setOpen(false), [location]);
+
+  const navLinks = [
+    { label: "Servicios",   href: isHome ? "#servicios"        : "/#servicios"        },
+    { label: "Proceso",     href: isHome ? "#proceso"          : "/#proceso"          },
+    { label: "Comparación", href: isHome ? "#tablacomparacion" : "/#tablacomparacion" },
+    { label: "Trabajos",   href: "/trabajos"},
+  ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-900/90 backdrop-blur border-b border-slate-800 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header
+      className={[
+        "sticky top-0 z-50 transition-all duration-300",
+        scrolled
+          ? "bg-base-100/95 backdrop-blur-md shadow-sm border-b border-base-200"
+          : "bg-base-100 border-b border-base-200",
+      ].join(" ")}
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center justify-between h-16">
 
-        {/* LOGO */}
-        <h1 className="text-xl font-bold text-white tracking-wide">
-          Pintura<span className="text-blue-500">Pro</span>
-        </h1>
-
-        {/* DESKTOP MENU */}
-        <nav className="hidden md:flex items-center gap-8 text-sm">
-
-          {/* Servicios Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
+          {/* ── LOGO ── */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 font-black text-xl tracking-tight hover:opacity-80 transition-opacity"
           >
-            <button className="flex items-center gap-1 text-slate-200 hover:text-white transition">
-              Servicios <ChevronDown size={16} />
-            </button>
+            <span className="w-8 h-8 rounded-lg bg-neutral flex items-center justify-center">
+              <PaintBucket size={16} className="text-neutral-content" />
+            </span>
+            <span>PinturasPro</span>
+          </Link>
 
-            {servicesOpen && (
-              <div className="absolute top-full mt-3 bg-white rounded-xl shadow-xl w-80 p-4 text-slate-800">
+          {/* ── DESKTOP MENU ── */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="px-4 py-2 rounded-lg text-sm font-medium
+                           opacity-70 hover:opacity-100 hover:bg-base-200
+                           transition-all duration-150"
+              >
+                {link.label}
+              </a>
+            ))}
 
-                <ul className="space-y-3 text-sm">
-                  <li className="hover:text-blue-600 cursor-pointer">Pintura Interior</li>
-                  <li className="hover:text-blue-600 cursor-pointer">Pintura Exterior</li>
-                  <li className="hover:text-blue-600 cursor-pointer">Techos</li>
-                  <li className="hover:text-blue-600 cursor-pointer">Impermeabilización</li>
-                  <li className="hover:text-blue-600 cursor-pointer">Demarcación Vial</li>
-                  <li className="hover:text-blue-600 cursor-pointer">Eliminación de Grafitis</li>
-                </ul>
+            {/* Separador */}
+            <div className="w-px h-5 bg-base-300 mx-2" />
 
-              </div>
-            )}
-          </div>
+            {/* CTA */}
+            <a
+              href={isHome ? "#presupuesto" : "/#presupuesto"}
+              className="btn btn-neutral btn-sm rounded-xl px-5"
+            >
+              Cotizar ahora
+            </a>
+          </nav>
 
-          <a href="#nosotros" className="text-slate-200 hover:text-white transition">
-            Nosotros
-          </a>
+          {/* ── HAMBURGER ── */}
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Abrir menú"
+            className="md:hidden btn btn-ghost btn-sm btn-square"
+          >
+            <div className="relative w-5 h-5">
+              <Menu
+                size={20}
+                className={[
+                  "absolute inset-0 transition-all duration-200",
+                  open ? "opacity-0 rotate-90 scale-75" : "opacity-100 rotate-0 scale-100",
+                ].join(" ")}
+              />
+              <X
+                size={20}
+                className={[
+                  "absolute inset-0 transition-all duration-200",
+                  open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-75",
+                ].join(" ")}
+              />
+            </div>
+          </button>
+        </div>
 
-          <a href="#proyectos" className="text-slate-200 hover:text-white transition">
-            Proyectos
-          </a>
-
-          <a href="#contacto">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition shadow">
-              Contactar
-            </button>
-          </a>
-
-        </nav>
-
-        {/* MOBILE BUTTON */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white"
+        {/* ── MOBILE MENU ── */}
+        <div
+          className={[
+            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
+            open ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0",
+          ].join(" ")}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <div className="border-t border-base-200 pt-3 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="px-3 py-2.5 rounded-xl text-sm font-medium
+                           opacity-70 hover:opacity-100 hover:bg-base-200
+                           transition-all duration-150"
+              >
+                {link.label}
+              </a>
+            ))}
+            <div className="pt-2">
+              <a
+                href={isHome ? "#presupuesto" : "/#presupuesto"}
+                onClick={() => setOpen(false)}
+                className="btn btn-neutral btn-sm w-full rounded-xl"
+              >
+                Cotizar ahora
+              </a>
+            </div>
+          </div>
+        </div>
 
       </div>
-
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="md:hidden bg-slate-900 border-t border-slate-800 px-6 py-6 space-y-4 text-sm">
-
-          <p className="text-slate-400">Servicios</p>
-          <ul className="space-y-2 pl-2">
-            <li className="text-white">Pintura Interior</li>
-            <li className="text-white">Pintura Exterior</li>
-            <li className="text-white">Techos</li>
-            <li className="text-white">Impermeabilización</li>
-            <li className="text-white">Demarcación Vial</li>
-            <li className="text-white">Grafitis</li>
-          </ul>
-
-          <a href="#nosotros" className="block text-white">Nosotros</a>
-          <a href="#proyectos" className="block text-white">Proyectos</a>
-
-          <button className="w-full bg-blue-600 text-white py-2 rounded-lg mt-3">
-            Contactar
-          </button>
-
-        </div>
-      )}
     </header>
   );
 }

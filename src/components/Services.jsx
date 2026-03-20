@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimatedTitle from "./AnimatedTitle";
 
 export default function Services() {
@@ -41,37 +42,38 @@ export default function Services() {
   ];
 
   return (
-    <section className="text-black py-20 text-center">
+    <section id="servicios" className="py-20 text-center">
       <div className="max-w-6xl mx-auto px-6">
+
         <AnimatedTitle
           text="Lo que hacemos"
-          className="text-4xl md:text-5xl font-bold"   
+          className="text-4xl md:text-5xl font-bold"
         />
-        <p className="text-center opacity-70 mt-10 mb-12">
+        <p className="text-center opacity-60 mt-4 mb-12 text-lg max-w-xl mx-auto">
           Servicios profesionales de pintura para hogares y negocios.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {servicios.map((s) => (
             <div
               key={s.titulo}
-              className="rounded-2xl border border-white/10 bg-gray-700/5 p-6 
-              transition-all duration-300 ease-out 
-              hover:-translate-y-2 hover:shadow-xl hover:shadow-black/30 
-              hover:bg-white/10"
+              className="rounded-2xl border border-base-300 bg-base-100 p-6
+                         transition-all duration-300 ease-out
+                         hover:-translate-y-2 hover:shadow-xl hover:shadow-black/10
+                         hover:border-base-content/20 text-left"
             >
-              {/* icon box */}
-              <div className="w-12 h-12 mx-auto rounded-xl bg-white/10 grid place-items-center text-2xl mb-5">
+              {/* Ícono */}
+              <div className="w-12 h-12 rounded-xl bg-base-200 grid place-items-center text-2xl mb-5">
                 {s.icon}
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">{s.titulo}</h3>
-              <p className="opacity-70 mb-4">{s.desc}</p>
+              <h3 className="text-lg font-bold mb-2">{s.titulo}</h3>
+              <p className="opacity-60 text-sm mb-4 leading-relaxed">{s.desc}</p>
 
-              <ul className="space-y-2 text-sm opacity-80">
+              <ul className="space-y-1.5 text-sm opacity-70">
                 {s.bullets.map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <span className="mt-1">•</span>
+                  <li key={b} className="flex gap-2 items-start">
+                    <span className="mt-0.5 text-xs">✓</span>
                     <span>{b}</span>
                   </li>
                 ))}
@@ -79,6 +81,20 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* CTA */}
+        <div className="mt-14 text-center">
+          <Link to="/trabajos">
+            <button className="btn btn-neutral btn-lg gap-2 px-8 rounded-xl">
+              Ver trabajos realizados
+              <span>→</span>
+            </button>
+          </Link>
+          <p className="mt-3 text-sm opacity-40">
+            Fotos reales · Interior, exterior y terminaciones
+          </p>
+        </div>
+
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 export default function BeforeAfter() {
   return (
-    <section className="py-20 bg-white text-center">
+    <section className="py-20 bg-base-100 text-center">
       <span className="text-rotate font-bold text-5xl leading-loose">
         <span className="justify-items-center">
           <span>Antes</span>
@@ -10,7 +10,7 @@ export default function BeforeAfter() {
       </span>
 
       <div className="max-w-4xl mx-auto px-6">
-        <div className="relative rounded-xl outline-blue-600 outline-2 overflow-hidden shadow-lg">
+        <div className="relative rounded-xl outline-primary outline-2 overflow-hidden shadow-lg">
 
           <img
             src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"

@@ -1,6 +1,6 @@
 export default function TablaComparacion() {
   return (
-    <section className="py-16 bg-base-200">
+    <section id="tablacomparacion" className="py-16 bg-base-200">
       <div className="max-w-6xl mx-auto px-2">
         <h2 className="text-3xl font-bold text-center mb-8">
           Comparación de Servicios
@@ -10,16 +10,16 @@ export default function TablaComparacion() {
         <div className="overflow-x-auto rounded-2xl border bg-base-100">
           <table className="table w-full min-w-180 text-base md:text-lg">
             <thead>
-              <tr className="bg-base-300 font-bold text-base md:text-lg">
+              <tr className="bg-base-300 text-base md:text-lg">
                 <th className="w-55">Aspecto</th>
-                <th className="text-error">Servicio común</th>
+                <th className="text-red-700">Servicio común</th>
                 <th className="text-green-800">Nuestro servicio</th>
               </tr>
             </thead>
 
             <tbody>
-              <tr className="hover:bg-base-300 font-bold">
-                <td className="font-bold">Tiempo de entrega</td>
+              <tr className="hover:bg-base-300">
+                <td className="">Tiempo de entrega</td>
                 
                 <td>
                     <div className="flex items-center gap-2">
@@ -41,8 +41,8 @@ export default function TablaComparacion() {
                 </td>
               </tr>
 
-              <tr className="hover:bg-base-300 font-bold">
-                <td className="font-bold">Terminaciones</td>
+              <tr className="hover:bg-base-300">
+                <td className="">Terminaciones</td>
                  
                 <td>
                     <div className="flex items-center gap-2">
@@ -63,9 +63,9 @@ export default function TablaComparacion() {
                 </td>
               </tr>
 
-              <tr className="hover:bg-base-300 font-bold">
+              <tr className="hover:bg-base-300">
 
-                <td className="font-bold">Limpieza</td>
+                <td className="">Limpieza</td>
 
                 <td>
                     <div className="flex items-center gap-2">
@@ -89,9 +89,9 @@ export default function TablaComparacion() {
 
               </tr>
 
-              <tr className="hover:bg-base-300 font-bold">
+              <tr className="hover:bg-base-300">
 
-                <td className="font-bold">Materiales</td>
+                <td className="">Materiales</td>
 
                 <td>
                     <div className="flex items-center gap-2">
@@ -115,9 +115,9 @@ export default function TablaComparacion() {
 
               </tr>
 
-              <tr className="hover:bg-base-300 font-bold">
+              <tr className="hover:bg-base-300">
 
-                <td className="font-bold">Garantía</td>
+                <td className="">Garantía</td>
 
                 <td>
                     <div className="flex items-center gap-2">

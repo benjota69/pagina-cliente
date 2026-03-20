@@ -1,5 +1,3 @@
-
-import { useState } from "react";
 import Navbar from "../components/Navbar";
 import HeroSlider from "../components/HeroSlider";
 import Services from "../components/Services";
@@ -13,10 +11,6 @@ import TablaComparacion from "../components/TablaComparacion";
 import CotizarPresupuesto from "../components/CotizarPresupuesto";
 
 export default function LandingPage() {
-
-  const [openWizard, setOpenWizard] = useState(false);
-
-
   return (
     <div>
 
@@ -24,9 +18,7 @@ export default function LandingPage() {
       <Navbar />
 
       {/* HERO */}
-
-      <HeroSlider onOpenPresupuesto={() => setOpenWizard(true)} />
-
+      <HeroSlider />
 
       {/* SERVICIOS */}
       <Services />
@@ -43,25 +35,13 @@ export default function LandingPage() {
       <Testimonios />
 
       {/* COTIZACIÓN DE PRESUPUESTO */}
-
-      <CotizarPresupuesto onOpenPresupuesto={() => setOpenWizard(true)} />
-
+      <CotizarPresupuesto />
 
       {/* BOTÓN DE WHATSAPP */}
       <WhatsappButton />
 
       {/* FOOTER */}
       <Footer />
-
-
-      {/* Presupuesto modal */}
-      {openWizard && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-          <div className="max-w-xl w-full">
-            <Presupuesto onClose={() => setOpenWizard(false)} />
-          </div>
-        </div>
-      )}
 
 
     </div>

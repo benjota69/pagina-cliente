@@ -1,7 +1,18 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
+import FotoServices from "./components/FotoServices";
+import ScrollToTop from "./components/ScrolltoTop";
 
 function App() {
-  return <LandingPage />;
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/trabajos" element={<FotoServices />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
