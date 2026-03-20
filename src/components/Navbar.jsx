@@ -3,7 +3,7 @@ import { Menu, X, PaintBucket } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  const [open,     setOpen]     = useState(false);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -19,10 +19,10 @@ export default function Navbar() {
   useEffect(() => setOpen(false), [location]);
 
   const navLinks = [
-    { label: "Servicios",   href: isHome ? "#servicios"        : "/#servicios"        },
-    { label: "Proceso",     href: isHome ? "#proceso"          : "/#proceso"          },
+    { label: "Servicios", href: isHome ? "#servicios" : "/#servicios" },
+    { label: "Proceso", href: isHome ? "#proceso" : "/#proceso" },
     { label: "Comparación", href: isHome ? "#tablacomparacion" : "/#tablacomparacion" },
-    { label: "Trabajos",   href: "/trabajos"},
+    { label: "Trabajos", href: "/trabajos" },
   ];
 
   return (
@@ -66,12 +66,12 @@ export default function Navbar() {
             <div className="w-px h-5 bg-base-300 mx-2" />
 
             {/* CTA */}
-            <a
-              href={isHome ? "#presupuesto" : "/#presupuesto"}
+            <button
+              onClick={() => window.dispatchEvent(new Event("abrirCotizador"))}
               className="btn btn-neutral btn-sm rounded-xl px-5"
             >
               Cotizar ahora
-            </a>
+            </button>
           </nav>
 
           {/* ── HAMBURGER ── */}
@@ -120,13 +120,12 @@ export default function Navbar() {
               </a>
             ))}
             <div className="pt-2">
-              <a
-                href={isHome ? "#presupuesto" : "/#presupuesto"}
-                onClick={() => setOpen(false)}
-                className="btn btn-neutral btn-sm w-full rounded-xl"
+              <button
+                onClick={() => window.dispatchEvent(new Event("abrirCotizador"))}
+                className="btn btn-neutral btn-sm rounded-xl px-5"
               >
                 Cotizar ahora
-              </a>
+              </button>
             </div>
           </div>
         </div>

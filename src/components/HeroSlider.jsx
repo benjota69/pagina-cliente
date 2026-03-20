@@ -37,14 +37,14 @@ export default function HeroSlider() {
 
         {/* Logo */}
         <img
-  src={logoHorizontal}
-  alt="Logo Imperio Romano"
-  className="w-full max-w-2xl mb-12"
-  style={{ 
-    mixBlendMode: "lighten",
-    filter: "drop-shadow(0 0 30px rgba(230,184,0,0.3))"
-  }}
-/>
+          src={logoHorizontal}
+          alt="Logo Imperio Romano"
+          className="w-full max-w-2xl mb-12"
+          style={{
+            mixBlendMode: "lighten",
+            filter: "drop-shadow(0 0 30px rgba(230,184,0,0.3))"
+          }}
+        />
 
         {/* Separador dorado */}
         <div className="flex items-center gap-4 mb-8">
@@ -63,37 +63,37 @@ export default function HeroSlider() {
         </p>
 
         {/* CTA */}
-        <a
-          href="#presupuesto"
-          className="px-10 py-4 rounded-xl font-semibold text-base tracking-wide transition-all duration-300
-                     hover:scale-105 hover:shadow-lg"
+        <button
+          onClick={() => window.dispatchEvent(new Event("abrirCotizador"))}
+          className="px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide
+             transition-all duration-300 hover:scale-105"
           style={{
             background: "linear-gradient(135deg, #E6B800, #C9A84C)",
             color: "#0A0A0A",
-            boxShadow: "0 4px 24px rgba(230,184,0,0.25)",
+            boxShadow: "0 4px 24px rgba(230,184,0,0.3)",
           }}
         >
           Solicitar evaluación gratuita
-        </a>
+        </button>
 
         {/* Indicador de scroll */}
         {/* Indicador de scroll */}
-<div className="mt-10 flex flex-col items-center gap-1 opacity-40">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="45"
-    height="45"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="#E6B800"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="animate-bounce"
-  >
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-</div>
+        <div className="mt-10 flex flex-col items-center gap-1 opacity-40">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="45"
+            height="45"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#E6B800"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="animate-bounce"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
 
       </div>
     </section>

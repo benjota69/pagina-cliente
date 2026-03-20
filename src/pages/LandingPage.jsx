@@ -3,7 +3,6 @@ import HeroSlider from "../components/HeroSlider";
 import Services from "../components/Services";
 import Procesos from "../components/Procesos";
 import BeforeAfter from "../components/BeforeAfter";
-import Presupuesto from "../components/PresupuestoWizard";
 import Footer from "../components/Footer";
 import Testimonios from "../components/Testimonios";
 import WhatsappButton from "../components/WhatsappButton";
