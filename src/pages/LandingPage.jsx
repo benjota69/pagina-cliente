@@ -5,6 +5,7 @@ import Procesos from "../components/Procesos";
 import BeforeAfter from "../components/BeforeAfter";
 import Footer from "../components/Footer";
 import Testimonios from "../components/Testimonios"; // DESACTIVADO POR AHORA.
+import VideoRemodelacion from "../components/VideoRemodelacion";
 import PreguntasFrecuentes from "../components/PreguntasFrecuentes"
 import WhatsappButton from "../components/WhatsappButton";
 import TablaComparacion from "../components/TablaComparacion";
@@ -25,11 +26,14 @@ export default function LandingPage() {
 
       {/* PROCESO */}
       <Procesos />
-      
+
       <TablaComparacion />
 
       {/* ANTES Y DESPUÉS */}
       <BeforeAfter />
+
+      {/* VIDEO DE REMODELACIÓN */}
+      <VideoRemodelacion />
 
       {/* BOTÓN DE TESTIMONIO */}
       <PreguntasFrecuentes />

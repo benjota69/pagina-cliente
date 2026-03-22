@@ -65,7 +65,7 @@ export default function HeroSlider() {
         {/* CTA */}
         <button
           onClick={() => window.dispatchEvent(new Event("abrirCotizador"))}
-          className="px-8 py-3.5 rounded-xl font-semibold text-sm tracking-wide
+          className="btn px-15 py-7.5 rounded-xl font-semibold text-sm tracking-wide
              transition-all duration-300 hover:scale-105"
           style={{
             background: "linear-gradient(135deg, #E6B800, #C9A84C)",
@@ -76,7 +76,6 @@ export default function HeroSlider() {
           Solicitar evaluación gratuita
         </button>
 
-        {/* Indicador de scroll */}
         {/* Indicador de scroll */}
         <div className="mt-10 flex flex-col items-center gap-1 opacity-40">
           <svg

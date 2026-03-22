@@ -23,6 +23,7 @@ export default function Navbar() {
     { label: "Proceso", href: isHome ? "#proceso" : "/#proceso" },
     { label: "Comparación", href: isHome ? "#tablacomparacion" : "/#tablacomparacion" },
     { label: "Trabajos", href: "/trabajos" },
+    { label: "FAQ", href: isHome ? "#preguntasfrecuentes" : "/#preguntasfrecuentes" }
   ];
 
   return (
@@ -40,12 +41,9 @@ export default function Navbar() {
           {/* ── LOGO ── */}
           <Link
             to="/"
-            className="flex items-center gap-2 font-black text-xl tracking-tight hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 font-black text-xl tracking-tight hover:opacity-80 transition-opacity"
           >
-            <span className="w-8 h-8 rounded-lg bg-neutral flex items-center justify-center">
-              <PaintBucket size={16} className="text-neutral-content" />
-            </span>
-            <span>PinturasPro</span>
+            <span>Imperio Romano</span>
           </Link>
 
           {/* ── DESKTOP MENU ── */}
