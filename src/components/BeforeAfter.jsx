@@ -9,10 +9,10 @@ import { gsap } from "gsap";
    ═══════════════════════════════════════════════════════ */
 
 // ── Imágenes de prueba (se reemplazan después) ──────
-const IMG_BEFORE =
-  "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80";
-const IMG_AFTER =
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80";
+const IMG_BEFORE = "/trabajos/PHOTO-2026-03-18-20-27-05 2.jpg";
+
+const IMG_AFTER = "/trabajos/Image2026-03-2312.02.53.jpeg";
+
 
 // ── Datos ───────────────────────────────────────────
 const BADGES = ["Resultados reales", "Sin filtros", "Calidad garantizada"];
@@ -174,13 +174,13 @@ export default function BeforeAfter() {
               opacity: 0,
               ...(w.gold
                 ? {
-                    background: "linear-gradient(135deg, #8B7320, #D4AF37, #F0D060, #D4AF37)",
-                    backgroundSize: "200% auto",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    animation: activeWord === i ? "ba-shimmer 3s linear infinite" : "none",
-                    filter: activeWord === i ? "drop-shadow(0 0 22px rgba(212,175,55,0.5))" : "none",
-                  }
+                  background: "linear-gradient(135deg, #8B7320, #D4AF37, #F0D060, #D4AF37)",
+                  backgroundSize: "200% auto",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  animation: activeWord === i ? "ba-shimmer 3s linear infinite" : "none",
+                  filter: activeWord === i ? "drop-shadow(0 0 22px rgba(212,175,55,0.5))" : "none",
+                }
                 : { color: "#9ca3af" }),
             }}
           >
