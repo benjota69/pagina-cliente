@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  [data-theme="imperiopro"] {
+    --color-primary: #E6B800;
+    --color-primary-content: #0A0A0A;
+    --color-secondary: #A8892E;
+    --color-secondary-content: #0A0A0A;
+    --color-accent: #F0C040;
+    --color-accent-content: #0A0A0A;
+    --color-neutral: #1A1A1A;
+    --color-neutral-content: #F5DFA0;
+    --color-base-100: #111111;
+    --color-base-200: #1C1C1C;
+    --color-base-300: #2A2A2A;
+    --color-base-content: #F5DFA0;
+    --color-info: #7EAED4;
+    --color-success: #6DBF8A;
+    --color-warning: #C9A84C;
+    --color-error: #8B8378;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
