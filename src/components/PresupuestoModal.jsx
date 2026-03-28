@@ -71,7 +71,7 @@ function buildWhatsAppMessage(data) {
 📍 *Comuna:* ${data.comuna}
 📅 *Fecha estimada:* ${data.fecha || "Por definir"}
 
-💬 *Comentarios:* ${data.comentarios || "Sin comentarios"}
+💬  *Comentarios:* ${data.comentarios || "Sin comentarios"}
   `.trim();
 
   return encodeURIComponent(msg);
@@ -117,36 +117,36 @@ export default function PresupuestoModal({ isOpen, onClose }) {
   };
 
   const handleEnviar = async () => {
-  try {
-    await emailjs.send(
-      "imperio_romano",
-      "template_5wvy8c8",
-      {
-        servicio: data.servicio,
-        propiedad: data.propiedad,
-        espacios: Object.keys(data.espacios)
-          .filter(k => data.espacios[k])
-          .join(", "),
-        metros: data.metros,
-        nombre: data.nombre,
-        telefono: data.telefono,
-        comuna: data.comuna,
-        fecha: data.fecha,
-        comentarios: data.comentarios,
-      },
-      "V9K8voJSN1A53nkjy"
-    );
+    try {
+      await emailjs.send(
+        "imperio_romano",
+        "template_5wvy8c8",
+        {
+          servicio: data.servicio,
+          propiedad: data.propiedad,
+          espacios: Object.keys(data.espacios)
+            .filter(k => data.espacios[k])
+            .join(", "),
+          metros: data.metros,
+          nombre: data.nombre,
+          telefono: data.telefono,
+          comuna: data.comuna,
+          fecha: data.fecha,
+          comentarios: data.comentarios,
+        },
+        "V9K8voJSN1A53nkjy"
+      );
 
-    const msg = buildWhatsAppMessage(data);
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+      const msg = buildWhatsAppMessage(data);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
 
-    setEnviado(true);
+      setEnviado(true);
 
-  } catch (error) {
-    console.error("Error enviando:", error);
-    alert("Hubo un error al enviar. Intenta nuevamente.");
-  }
-};
+    } catch (error) {
+      console.error("Error enviando:", error);
+      alert("Hubo un error al enviar. Intenta nuevamente.");
+    }
+  };
 
 
   const handleClose = () => {
@@ -281,9 +281,15 @@ export default function PresupuestoModal({ isOpen, onClose }) {
           {/* ── STEP 3 — ESPACIOS ── */}
           {!enviado && step === 3 && (
             <div>
-              <h3 className="font-semibold mb-1">¿Qué espacios necesitas trabajar?</h3>
-              <p className="text-xs opacity-50 mb-4">Puedes seleccionar varios</p>
-              <div className="grid grid-cols-2 gap-2 mb-6">
+              <h3 className="font-semibold mb-1">
+                ¿En qué áreas necesitas el servicio?
+              </h3>
+              <p className="text-xs opacity-50 mb-4">
+                Puedes seleccionar uno o varios espacios
+              </p>
+
+              {/* GRID ESPACIOS */}
+              <div className="grid grid-cols-2 gap-2 mb-4">
                 {espaciosDisponibles.map(esp => (
                   <button
                     key={esp}
@@ -295,21 +301,40 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                       fontWeight: data.espacios[esp] ? 600 : 400,
                     }}
                   >
-                    {data.espacios[esp] ? "✓ " : ""}{esp}
+                    {data.espacios[esp] ? "✓ " : ""}
+                    {esp}
                   </button>
                 ))}
               </div>
+
+              {/* 🟡 RESUMEN DINÁMICO */}
+              {espaciosSeleccionados.length > 0 && (
+                <p className="text-sm mb-4 opacity-70">
+                  Has seleccionado: {espaciosSeleccionados.join(", ")} (
+                  {espaciosSeleccionados.length} espacio
+                  {espaciosSeleccionados.length > 1 ? "s" : ""}
+                  )
+                </p>
+              )}
+
+              {/* SLIDER */}
               <div>
                 <label className="text-sm opacity-60 mb-1 block">
-                  M² aproximados <span className="opacity-50">(opcional)</span>
+                  Superficie total aproximada (m²)
+                  <span className="opacity-50"> (opcional)</span>
                 </label>
+
                 <div className="flex items-center gap-3">
                   <input
-                    type="range" min="10" max="500" step="5"
+                    type="range"
+                    min="10"
+                    max="500"
+                    step="5"
                     value={data.metros || 60}
                     onChange={e => set("metros", e.target.value)}
                     className="flex-1"
                   />
+
                   <span className="text-sm font-semibold min-w-[52px] text-right">
                     {data.metros || 60} m²
                   </span>
