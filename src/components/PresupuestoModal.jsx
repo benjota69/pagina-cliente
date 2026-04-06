@@ -4,7 +4,9 @@ import { X, ChevronRight, ChevronLeft, CheckCircle, Send } from "lucide-react";
 import {
   Paintbrush, Layers, Sparkles, Grid3x3, Wrench,
   Home, Building2, Briefcase, ShoppingBag, GraduationCap,
-  HeartPulse, HelpCircle
+  HeartPulse, HelpCircle,
+  Sofa, UtensilsCrossed, BedDouble, Bath, DoorOpen,
+  Car, FlipHorizontal, Tv, Dumbbell, BookOpen,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────
@@ -16,11 +18,11 @@ const WHATSAPP_NUMBER = "56944235539";
 //  DATA
 // ─────────────────────────────────────────────
 const SERVICIOS = [
-  { key: "pintado", label: "Solo pintado", icon: <Paintbrush size={22} /> },
-  { key: "yeso", label: "Solo yeso", icon: <Layers size={22} /> },
-  { key: "yeso+pint", label: "Yeso + pintado", icon: <Sparkles size={22} /> },
-  { key: "paneles3d", label: "Yeso Paneles 3D", icon: <Grid3x3 size={22} /> },
-  { key: "otro", label: "Otro", icon: <Wrench size={22} /> },
+  { key: "pintado", label: "Solo pintado", desc: "Pintura interior o exterior", icon: <Paintbrush size={22} /> },
+  { key: "yeso", label: "Solo yeso", desc: "Molduras, reparaciones y cielos", icon: <Layers size={22} /> },
+  { key: "yeso+pint", label: "Yeso + pintado", desc: "Servicio completo integral", icon: <Sparkles size={22} /> },
+  { key: "paneles3d", label: "Yeso Paneles 3D", desc: "Acabados decorativos 3D", icon: <Grid3x3 size={22} /> },
+  { key: "otro", label: "Otro", desc: "Cuéntanos qué necesitas", icon: <Wrench size={22} /> },
 ];
 
 const PROPIEDADES = [
@@ -33,30 +35,102 @@ const PROPIEDADES = [
   { key: "otro", label: "Otro", icon: <HelpCircle size={22} /> },
 ];
 
+// Espacios con ícono y descripción corta
 const ESPACIOS_MAP = {
-  casa: ["Living", "Comedor", "Cocina", "Dormitorio principal", "Dormitorio 2", "Dormitorio 3", "Baño", "Pasillo", "Fachada exterior", "Garage"],
-  depto: ["Living", "Comedor", "Cocina", "Dormitorio principal", "Dormitorio 2", "Baño", "Pasillo"],
-  oficina: ["Recepción", "Sala de reuniones", "Oficinas", "Baños", "Pasillo", "Fachada"],
-  local: ["Sala principal", "Bodega", "Baño", "Fachada exterior"],
-  educacion: ["Salas de clases", "Pasillos", "Baños", "Fachada", "Gimnasio", "Comedor"],
-  hospital: ["Habitaciones", "Pasillos", "Baños", "Recepción", "Fachada"],
-  otro: ["Espacio 1", "Espacio 2", "Espacio 3"],
+  casa: [
+    { key: "Living", label: "Living", desc: "Sala principal", icon: <Sofa size={18} /> },
+    { key: "Comedor", label: "Comedor", desc: "Zona de comidas", icon: <UtensilsCrossed size={18} /> },
+    { key: "Cocina", label: "Cocina", desc: "Mesones y alacenas", icon: <UtensilsCrossed size={18} /> },
+    { key: "Dormitorio principal", label: "Dormitorio principal", desc: "Habitación master", icon: <BedDouble size={18} /> },
+    { key: "Dormitorio 2", label: "Dormitorio 2", desc: "Segunda habitación", icon: <BedDouble size={18} /> },
+    { key: "Dormitorio 3", label: "Dormitorio 3", desc: "Tercera habitación", icon: <BedDouble size={18} /> },
+    { key: "Baño", label: "Baño", desc: "Vanities y repisas", icon: <Bath size={18} /> },
+    { key: "Pasillo", label: "Pasillo", desc: "Circulaciones", icon: <DoorOpen size={18} /> },
+    { key: "Fachada exterior", label: "Fachada exterior", desc: "Exterior del inmueble", icon: <Home size={18} /> },
+    { key: "Garage", label: "Garage", desc: "Estacionamiento", icon: <Car size={18} /> },
+  ],
+  depto: [
+    { key: "Living", label: "Living", desc: "Sala principal", icon: <Sofa size={18} /> },
+    { key: "Comedor", label: "Comedor", desc: "Zona de comidas", icon: <UtensilsCrossed size={18} /> },
+    { key: "Cocina", label: "Cocina", desc: "Mesones y alacenas", icon: <UtensilsCrossed size={18} /> },
+    { key: "Dormitorio principal", label: "Dormitorio principal", desc: "Habitación master", icon: <BedDouble size={18} /> },
+    { key: "Dormitorio 2", label: "Dormitorio 2", desc: "Segunda habitación", icon: <BedDouble size={18} /> },
+    { key: "Baño", label: "Baño", desc: "Vanities y repisas", icon: <Bath size={18} /> },
+    { key: "Pasillo", label: "Pasillo", desc: "Circulaciones", icon: <DoorOpen size={18} /> },
+  ],
+  oficina: [
+    { key: "Recepción", label: "Recepción", desc: "Área de entrada", icon: <DoorOpen size={18} /> },
+    { key: "Sala de reuniones", label: "Sala de reuniones", desc: "Salas de conferencia", icon: <Tv size={18} /> },
+    { key: "Oficinas", label: "Oficinas", desc: "Espacios de trabajo", icon: <Briefcase size={18} /> },
+    { key: "Baños", label: "Baños", desc: "Servicios higiénicos", icon: <Bath size={18} /> },
+    { key: "Pasillo", label: "Pasillo", desc: "Circulaciones", icon: <DoorOpen size={18} /> },
+    { key: "Fachada", label: "Fachada", desc: "Exterior del edificio", icon: <Building2 size={18} /> },
+  ],
+  local: [
+    { key: "Sala principal", label: "Sala principal", desc: "Área de atención", icon: <ShoppingBag size={18} /> },
+    { key: "Bodega", label: "Bodega", desc: "Almacenamiento", icon: <FlipHorizontal size={18} /> },
+    { key: "Baño", label: "Baño", desc: "Servicios higiénicos", icon: <Bath size={18} /> },
+    { key: "Fachada", label: "Fachada", desc: "Exterior del local", icon: <Building2 size={18} /> },
+  ],
+  educacion: [
+    { key: "Salas de clases", label: "Salas de clases", desc: "Aulas", icon: <BookOpen size={18} /> },
+    { key: "Pasillos", label: "Pasillos", desc: "Circulaciones", icon: <DoorOpen size={18} /> },
+    { key: "Baños", label: "Baños", desc: "Servicios higiénicos", icon: <Bath size={18} /> },
+    { key: "Fachada", label: "Fachada", desc: "Exterior del edificio", icon: <Building2 size={18} /> },
+    { key: "Gimnasio", label: "Gimnasio", desc: "Área deportiva", icon: <Dumbbell size={18} /> },
+    { key: "Comedor", label: "Comedor", desc: "Casino o comedor", icon: <UtensilsCrossed size={18} /> },
+  ],
+  hospital: [
+    { key: "Habitaciones", label: "Habitaciones", desc: "Salas de pacientes", icon: <BedDouble size={18} /> },
+    { key: "Pasillos", label: "Pasillos", desc: "Circulaciones", icon: <DoorOpen size={18} /> },
+    { key: "Baños", label: "Baños", desc: "Servicios", icon: <Bath size={18} /> },
+    { key: "Recepción", label: "Recepción", desc: "Área de entrada", icon: <DoorOpen size={18} /> },
+    { key: "Fachada", label: "Fachada", desc: "Exterior", icon: <Building2 size={18} /> },
+  ],
+  otro: [],
 };
+
 
 const COMUNAS = [
   "Viña del Mar", "Valparaíso", "Quilpué", "Villa Alemana", "Concón", "Otra",
 ];
 
-const TOTAL_STEPS = 5; // ahora con paso de resumen
+const TOTAL_STEPS = 5;
+
+// Hint contextual para el slider de m²
+function getM2Hint(val) {
+  const v = parseInt(val);
+  if (v <= 30) return "Espacio muy pequeño";
+  if (v <= 60) return "Departamento pequeño";
+  if (v <= 100) return "Departamento o casa mediana";
+  if (v <= 180) return "Casa grande";
+  return "Proyecto de gran escala";
+}
 
 // ─────────────────────────────────────────────
 //  HELPERS
 // ─────────────────────────────────────────────
+const isValidDate = ({ dia, mes, anio }) => {
+  if (!dia && !mes && !anio) return true; // opcional
+
+  const d = parseInt(dia);
+  const m = parseInt(mes);
+  const a = parseInt(anio);
+
+  if (!d || !m || !a) return false;
+
+  return d >= 1 && d <= 31 && m >= 1 && m <= 12 && a >= 2026 && a <= 2035;
+};
 function buildWhatsAppMessage(data) {
   const espaciosTexto = Object.entries(data.espacios)
     .filter(([, v]) => v)
     .map(([k]) => k)
     .join(", ");
+
+  const fechaTexto =
+    data.fecha?.dia && data.fecha?.mes && data.fecha?.anio
+      ? `${data.fecha.dia}/${data.fecha.mes}/${data.fecha.anio}`
+      : "Por definir";
 
   const msg = `
 🏠 *Nueva solicitud de cotización*
@@ -69,7 +143,7 @@ function buildWhatsAppMessage(data) {
 👤 *Nombre:* ${data.nombre}
 📱 *Teléfono:* ${data.telefono}
 📍 *Comuna:* ${data.comuna}
-📅 *Fecha estimada:* ${data.fecha || "Por definir"}
+📅 *Fecha estimada:* ${fechaTexto}
 
 💬 *Comentarios:* ${data.comentarios || "Sin comentarios"}
   `.trim();
@@ -77,12 +151,22 @@ function buildWhatsAppMessage(data) {
   return encodeURIComponent(msg);
 }
 
+
+const isValidName = (name) => name.trim().length >= 3;
+const isValidPhone = (phone) => {
+  const cleaned = phone.replace(/\s/g, "");
+
+  return /^(\+?56)?9\d{8}$/.test(cleaned);
+};
+
+
 // ─────────────────────────────────────────────
 //  MAIN COMPONENT
 // ─────────────────────────────────────────────
 export default function PresupuestoModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1);
   const [enviado, setEnviado] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState("");
 
   const [data, setData] = useState({
     servicio: "",
@@ -92,7 +176,11 @@ export default function PresupuestoModal({ isOpen, onClose }) {
     nombre: "",
     telefono: "",
     comuna: "",
-    fecha: "",
+    fecha: {
+      dia: "",
+      mes: "",
+      anio: "",
+    },
     comentarios: "",
   });
 
@@ -100,20 +188,33 @@ export default function PresupuestoModal({ isOpen, onClose }) {
 
   const set = (key, val) => setData(d => ({ ...d, [key]: val }));
 
-  const toggleEspacio = (esp) => {
+  const toggleEspacio = (key) => {
     setData(d => ({
       ...d,
-      espacios: { ...d.espacios, [esp]: !d.espacios[esp] },
+      espacios: { ...d.espacios, [key]: !d.espacios[key] },
     }));
   };
 
   const canNext = () => {
     if (step === 1) return !!data.servicio;
     if (step === 2) return !!data.propiedad;
-    if (step === 3) return Object.values(data.espacios).some(Boolean);
-    if (step === 4) return !!data.nombre && !!data.telefono && !!data.comuna;
+
+    if (step === 3) {
+      if (data.propiedad === "otro") {
+        return data.comentarios.trim().length > 0;
+      }
+      return Object.values(data.espacios).some(Boolean);
+    }
+
+    if (step === 4) {
+      return (
+        isValidName(data.nombre) &&
+        isValidPhone(data.telefono) &&
+        !!data.comuna
+      );
+    }
     if (step === 5) return true;
-    return false;
+    return data.comentarios.trim().length > 0;
   };
 
   const handleEnviar = async () => {
@@ -137,29 +238,32 @@ export default function PresupuestoModal({ isOpen, onClose }) {
         "V9K8voJSN1A53nkjy"
       );
 
+      // 🔥 GENERAR LINK DE WHATSAPP
       const msg = buildWhatsAppMessage(data);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+      setWhatsappLink(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`);
 
+      // ✅ MOSTRAR PANTALLA DE ÉXITO
       setEnviado(true);
 
     } catch (error) {
       console.error("Error enviando:", error);
-      alert("Hubo un error al enviar. Intenta nuevamente.");
+      alert("Hubo un error al enviar.");
     }
   };
-
 
   const handleClose = () => {
     setStep(1);
     setEnviado(false);
-    setData({ servicio: "", propiedad: "", espacios: {}, metros: "", nombre: "", telefono: "", comuna: "", fecha: "", comentarios: "" });
+    setData({ servicio: "", propiedad: "", espacios: {}, metros: "", nombre: "", telefono: "", comuna: "", fecha: { dia: "", mes: "", anio: "" }, comentarios: "" });
     onClose();
   };
 
   const espaciosDisponibles = ESPACIOS_MAP[data.propiedad] ?? [];
+  const fechaCompleta = data.fecha.dia && data.fecha.mes && data.fecha.anio;
   const espaciosSeleccionados = Object.entries(data.espacios).filter(([, v]) => v).map(([k]) => k);
-
+  const espaciosCount = espaciosSeleccionados.length;
   const stepLabels = ["Servicio", "Propiedad", "Espacios", "Contacto", "Resumen"];
+  const metrosVal = data.metros || 60;
 
   return (
     <div
@@ -171,7 +275,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
         onClick={e => e.stopPropagation()}
         style={{ animation: "slideUp 0.25s ease-out" }}
       >
-        {/* HEADER */}
+        {/* ── HEADER ── */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-base-300">
           <div>
             <h2 className="font-bold text-lg">Solicitar cotización</h2>
@@ -186,47 +290,72 @@ export default function PresupuestoModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* PROGRESS BAR */}
+        {/* ── PROGRESS ── */}
         {!enviado && (
           <>
-            <div className="h-1 bg-base-300">
-              <div
-                className="h-1 transition-all duration-500"
-                style={{
-                  width: `${(step / TOTAL_STEPS) * 100}%`,
-                  background: "linear-gradient(90deg, #C9A84C, #E6B800)",
-                }}
-              />
+            {/* Barra segmentada */}
+            <div className="flex gap-1 px-6 pt-4">
+              {stepLabels.map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-1 rounded-full transition-all duration-500"
+                  style={{
+                    background: i + 1 <= step
+                      ? "linear-gradient(90deg, #C9A84C, #E6B800)"
+                      : "rgba(255,255,255,0.12)",
+                  }}
+                />
+              ))}
             </div>
-            {/* Step dots */}
-            <div className="flex justify-center gap-2 py-3">
+            {/* Step labels */}
+            <div className="flex justify-between px-6 pt-1 pb-3">
               {stepLabels.map((label, i) => (
-                <div key={i} className="flex flex-col items-center gap-1">
-                  <div
-                    className="w-2 h-2 rounded-full transition-all duration-300"
-                    style={{
-                      background: i + 1 <= step ? "#E6B800" : "rgba(255,255,255,0.15)",
-                      transform: i + 1 === step ? "scale(1.4)" : "scale(1)",
-                    }}
-                  />
-                </div>
+                <span
+                  key={i}
+                  className="text-[10px] transition-all duration-300"
+                  style={{
+                    color: i + 1 === step
+                      ? "#E6B800"
+                      : i + 1 < step
+                        ? "rgba(255,255,255,0.4)"
+                        : "rgba(255,255,255,0.2)",
+                    fontWeight: i + 1 === step ? 600 : 400,
+                  }}
+                >
+                  {label}
+                </span>
               ))}
             </div>
           </>
         )}
 
-        {/* CONTENT */}
+        {/* ── CONTENT ── */}
         <div className="px-6 py-4 max-h-[60vh] overflow-y-auto">
 
           {/* ── ENVIADO ── */}
           {enviado && (
             <div className="text-center py-8 flex flex-col items-center gap-4">
               <CheckCircle size={56} style={{ color: "#E6B800" }} />
+
               <h3 className="text-xl font-bold">¡Solicitud enviada!</h3>
+
               <p className="opacity-60 text-sm max-w-xs">
-                Se abrió WhatsApp con tu información. Te contactaremos en menos de 24 horas.
+                Hemos recibido tu solicitud. Puedes enviarla por WhatsApp o esperar nuestro contacto.
               </p>
-              <button onClick={handleClose} className="btn btn-neutral mt-2">
+
+              {/* 🔥 BOTÓN WHATSAPP */}
+              <button
+                onClick={() => window.open(whatsappLink, "_blank")}
+                className="btn btn-sm px-6 rounded-xl"
+                style={{
+                  background: "linear-gradient(135deg, #25D366, #1ebe5d)",
+                  color: "#0A0A0A",
+                }}
+              >
+                Enviar por WhatsApp
+              </button>
+
+              <button onClick={handleClose} className="btn btn-ghost mt-2">
                 Cerrar
               </button>
             </div>
@@ -235,7 +364,8 @@ export default function PresupuestoModal({ isOpen, onClose }) {
           {/* ── STEP 1 — SERVICIO ── */}
           {!enviado && step === 1 && (
             <div>
-              <h3 className="font-semibold mb-4">¿Qué servicio necesitas?</h3>
+              <h3 className="font-semibold mb-1">¿Qué servicio necesitas?</h3>
+              <p className="text-xs opacity-50 mb-4">Selecciona el tipo de trabajo</p>
               <div className="grid grid-cols-2 gap-3">
                 {SERVICIOS.map(s => (
                   <button
@@ -248,7 +378,11 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     }}
                   >
                     <span className="block mb-2" style={{ color: "#E6B800" }}>{s.icon}</span>
-                    <span className="text-sm font-medium">{s.label}</span>
+                    <span className="text-sm font-medium block">{s.label}</span>
+                    <span className="text-xs opacity-50 block mt-0.5">{s.desc}</span>
+                    {data.servicio === s.key && (
+                      <span className="text-xs mt-2 block" style={{ color: "#E6B800" }}>✓ Seleccionado</span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -258,7 +392,8 @@ export default function PresupuestoModal({ isOpen, onClose }) {
           {/* ── STEP 2 — PROPIEDAD ── */}
           {!enviado && step === 2 && (
             <div>
-              <h3 className="font-semibold mb-4">¿Qué tipo de propiedad es?</h3>
+              <h3 className="font-semibold mb-1">¿Qué tipo de propiedad es?</h3>
+              <p className="text-xs opacity-50 mb-4">Esto nos ayuda a sugerirte los espacios correctos</p>
               <div className="grid grid-cols-2 gap-3">
                 {PROPIEDADES.map(p => (
                   <button
@@ -271,7 +406,10 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     }}
                   >
                     <span className="block mb-2" style={{ color: "#E6B800" }}>{p.icon}</span>
-                    <span className="text-sm font-medium">{p.label}</span>
+                    <span className="text-sm font-medium block">{p.label}</span>
+                    {data.propiedad === p.key && (
+                      <span className="text-xs mt-2 block" style={{ color: "#E6B800" }}>✓ Seleccionado</span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -283,36 +421,87 @@ export default function PresupuestoModal({ isOpen, onClose }) {
             <div>
               <h3 className="font-semibold mb-1">¿Qué espacios necesitas trabajar?</h3>
               <p className="text-xs opacity-50 mb-4">Puedes seleccionar varios</p>
-              <div className="grid grid-cols-2 gap-2 mb-6">
-                {espaciosDisponibles.map(esp => (
-                  <button
-                    key={esp}
-                    onClick={() => toggleEspacio(esp)}
-                    className="p-3 rounded-xl border text-sm text-left transition-all duration-200"
-                    style={{
-                      borderColor: data.espacios[esp] ? "#E6B800" : "rgba(255,255,255,0.1)",
-                      background: data.espacios[esp] ? "rgba(230,184,0,0.1)" : "rgba(255,255,255,0.03)",
-                      fontWeight: data.espacios[esp] ? 600 : 400,
-                    }}
-                  >
-                    {data.espacios[esp] ? "✓ " : ""}{esp}
-                  </button>
-                ))}
+
+              <div className="grid grid-cols-2 gap-2 mb-5">
+                {espaciosDisponibles.map(esp => {
+                  const selected = !!data.espacios[esp.key];
+                  return (
+                    <button
+                      key={esp.key}
+                      onClick={() => toggleEspacio(esp.key)}
+                      className="p-3 rounded-xl border text-left transition-all duration-200 flex items-center gap-3"
+                      style={{
+                        borderColor: selected ? "#E6B800" : "rgba(255,255,255,0.1)",
+                        background: selected ? "rgba(230,184,0,0.1)" : "rgba(255,255,255,0.03)",
+                      }}
+                    >
+                      <span style={{ color: selected ? "#E6B800" : "rgba(255,255,255,0.35)", flexShrink: 0 }}>
+                        {esp.icon}
+                      </span>
+                      <div className="min-w-0">
+                        <span className="text-sm font-medium block truncate">{esp.label}</span>
+                        <span className="text-xs opacity-40 block truncate">{esp.desc}</span>
+                      </div>
+                      {selected && (
+                        <span className="ml-auto flex-shrink-0 text-xs" style={{ color: "#E6B800" }}>✓</span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
-              <div>
-                <label className="text-sm opacity-60 mb-1 block">
-                  M² aproximados <span className="opacity-50">(opcional)</span>
-                </label>
-                <div className="flex items-center gap-3">
-                  <input
-                    type="range" min="10" max="500" step="5"
-                    value={data.metros || 60}
-                    onChange={e => set("metros", e.target.value)}
-                    className="flex-1"
+              {data.propiedad === "otro" && (
+                <div className="mt-4">
+                  <label className="text-xs opacity-50 block mb-1 ml-1">
+                    Describe el espacio o proyecto *
+                  </label>
+                  <textarea
+                    placeholder="Ej: quincho, terraza, taller, galpón, etc."
+                    value={data.comentarios}
+                    onChange={e => set("comentarios", e.target.value)}
+                    rows={3}
+                    className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm focus:outline-none"
                   />
-                  <span className="text-sm font-semibold min-w-[52px] text-right">
-                    {data.metros || 60} m²
+                </div>
+              )}
+
+              {/* Contador de selección */}
+              {espaciosCount > 0 && (
+                <div
+                  className="text-xs rounded-lg px-3 py-2 mb-4 flex items-center gap-2"
+                  style={{ background: "rgba(230,184,0,0.08)", color: "#E6B800", border: "1px solid rgba(230,184,0,0.2)" }}
+                >
+                  <CheckCircle size={12} />
+                  {espaciosCount === 1
+                    ? "1 espacio seleccionado"
+                    : `${espaciosCount} espacios seleccionados`}
+                </div>
+              )}
+
+              {/* Slider m² con hint contextual */}
+              <div className="rounded-xl p-4" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                <div className="flex justify-between items-center mb-3">
+                  <div>
+                    <span className="text-sm font-medium">M² aproximados</span>
+                    <span className="text-xs opacity-40 ml-2">(opcional)</span>
+                  </div>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-lg font-bold" style={{ color: "#E6B800" }}>{metrosVal}</span>
+                    <span className="text-xs opacity-50">m²</span>
+                  </div>
+                </div>
+                <input
+                  type="range" min="10" max="500" step="5"
+                  value={metrosVal}
+                  onChange={e => set("metros", e.target.value)}
+                  className="w-full"
+                  style={{ accentColor: "#E6B800" }}
+                />
+                <div className="flex justify-between mt-2">
+                  <span className="text-xs opacity-30">10 m²</span>
+                  <span className="text-xs" style={{ color: "#E6B800", opacity: 0.7 }}>
+                    {getM2Hint(metrosVal)}
                   </span>
+                  <span className="text-xs opacity-30">500 m²</span>
                 </div>
               </div>
             </div>
@@ -321,77 +510,149 @@ export default function PresupuestoModal({ isOpen, onClose }) {
           {/* ── STEP 4 — CONTACTO ── */}
           {!enviado && step === 4 && (
             <div className="flex flex-col gap-3">
-              <h3 className="font-semibold mb-1">Tus datos de contacto</h3>
+              <div className="mb-1">
+                <h3 className="font-semibold">Tus datos de contacto</h3>
+                <p className="text-md opacity-50 mt-0.5">Sin compromiso. Te respondemos en menos de 24 h.</p>
+              </div>
               <input
                 placeholder="Nombre completo *"
                 value={data.nombre}
                 onChange={e => set("nombre", e.target.value)}
-                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none transition-colors"
-                style={{ focusBorderColor: "#E6B800" }}
+                className={`w-full bg-base-200 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors ${data.nombre && !isValidName(data.nombre)
+                  ? "border-red-400"
+                  : "border-base-300"
+                  }`}
+
               />
+              {data.nombre && !isValidName(data.nombre) && (
+                <span className="text-xs text-red-400 ml-1">
+                  El nombre debe tener al menos 3 caracteres
+                </span>
+              )}
               <input
-                placeholder="Teléfono / WhatsApp *"
+                placeholder="Teléfono / WhatsApp +56912345678*"
                 value={data.telefono}
-                onChange={e => set("telefono", e.target.value)}
-                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none transition-colors"
+                onChange={e => {
+                  const value = e.target.value.replace(/[^0-9+]/g, "");
+                  set("telefono", value);
+                }}
+                className={`w-full bg-base-200 border rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors ${data.telefono && !isValidPhone(data.telefono)
+                  ? "border-red-400"
+                  : "border-base-300"
+                  }`}
               />
+              {data.telefono && !isValidPhone(data.telefono) && (
+                <span className="text-xs text-red-400 ml-1">
+                  Ingresa un teléfono válido (9 dígitos, puede incluir +569)
+                </span>
+              )}
               <select
                 value={data.comuna}
                 onChange={e => set("comuna", e.target.value)}
-                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none transition-colors"
+                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors"
               >
                 <option value="">Selecciona tu comuna *</option>
                 {COMUNAS.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
-              <input
-                type="date"
-                value={data.fecha}
-                onChange={e => set("fecha", e.target.value)}
-                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none transition-colors"
-              />
+              <div>
+                <label className="text-md opacity-50 block mb-2 ml-1">
+                  Fecha estimada de inicio (opcional)
+                </label>
+
+
+                <div className="flex gap-2">
+                  <input
+                    placeholder="Día"
+                    maxLength={2}
+                    value={data.fecha.dia}
+                    onChange={e => {
+                      const value = e.target.value.replace(/\D/g, "");
+                      set("fecha", { ...data.fecha, dia: value });
+                    }}
+                    className={`w-1/3 bg-base-200 border rounded-xl px-3 py-3 text-sm text-center ${fechaCompleta && !isValidDate(data.fecha)
+                      ? "border-red-400"
+                      : "border-base-300"
+                      }`}
+                  />
+
+                  <input
+                    placeholder="Mes"
+                    maxLength={2}
+                    value={data.fecha.mes}
+                    onChange={e => {
+                      const value = e.target.value.replace(/\D/g, "");
+                      set("fecha", { ...data.fecha, mes: value });
+                    }}
+                    className={`w-1/3 bg-base-200 border rounded-xl px-3 py-3 text-sm text-center ${fechaCompleta && !isValidDate(data.fecha)
+                      ? "border-red-400"
+                      : "border-base-300"
+                      }`}
+                  />
+
+                  <input
+                    placeholder="Año"
+                    maxLength={4}
+                    value={data.fecha.anio}
+                    onChange={e => {
+                      const value = e.target.value.replace(/\D/g, "");
+                      set("fecha", { ...data.fecha, anio: value });
+                    }}
+                    className={`w-1/3 bg-base-200 border rounded-xl px-3 py-3 text-sm text-center ${fechaCompleta && !isValidDate(data.fecha)
+                      ? "border-red-400"
+                      : "border-base-300"
+                      }`}
+                  />
+                </div>
+
+                {/* ERROR FECHA */}
+                {(data.fecha.dia || data.fecha.mes || data.fecha.anio) && !isValidDate(data.fecha) && (
+                  <span className="text-xs text-red-400 ml-1 mt-1">
+                    Fecha inválida
+                  </span>
+                )}
+
+              </div>
+              <label>Comentarios </label>
               <textarea
                 placeholder="Comentarios adicionales (opcional)"
                 value={data.comentarios}
                 onChange={e => set("comentarios", e.target.value)}
                 rows={3}
-                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm
-                           focus:outline-none transition-colors resize-none"
+                className="w-full bg-base-200 border border-base-300 rounded-xl px-4 py-3 text-sm focus:outline-none transition-colors resize-none"
               />
-              <p className="text-xs opacity-40 text-center">
-                Te contactaremos en menos de 24 horas. Sin compromiso.
-              </p>
             </div>
           )}
 
           {/* ── STEP 5 — RESUMEN ── */}
           {!enviado && step === 5 && (
             <div>
-              <h3 className="font-semibold mb-4">Revisa tu solicitud</h3>
+              <h3 className="font-semibold mb-1">Revisa tu solicitud</h3>
+              <p className="text-xs opacity-50 mb-4">Confirma que todo esté correcto antes de enviar</p>
               <div className="flex flex-col gap-3">
 
-                {/* Servicio */}
                 <div className="flex items-center justify-between p-3 rounded-xl bg-base-200 border border-base-300">
                   <span className="text-xs opacity-50 uppercase tracking-wider">Servicio</span>
-                  <span className="text-sm font-semibold">
-                    {SERVICIOS.find(s => s.key === data.servicio)?.icon} {SERVICIOS.find(s => s.key === data.servicio)?.label}
+                  <span className="text-sm font-semibold flex items-center gap-2">
+                    <span style={{ color: "#E6B800" }}>{SERVICIOS.find(s => s.key === data.servicio)?.icon}</span>
+                    {SERVICIOS.find(s => s.key === data.servicio)?.label}
                   </span>
                 </div>
 
-                {/* Propiedad */}
                 <div className="flex items-center justify-between p-3 rounded-xl bg-base-200 border border-base-300">
                   <span className="text-xs opacity-50 uppercase tracking-wider">Propiedad</span>
-                  <span className="text-sm font-semibold">
-                    {PROPIEDADES.find(p => p.key === data.propiedad)?.icon} {PROPIEDADES.find(p => p.key === data.propiedad)?.label}
+                  <span className="text-sm font-semibold flex items-center gap-2">
+                    <span style={{ color: "#E6B800" }}>{PROPIEDADES.find(p => p.key === data.propiedad)?.icon}</span>
+                    {PROPIEDADES.find(p => p.key === data.propiedad)?.label}
                   </span>
                 </div>
 
-                {/* Espacios */}
                 <div className="p-3 rounded-xl bg-base-200 border border-base-300">
-                  <span className="text-xs opacity-50 uppercase tracking-wider block mb-2">Espacios</span>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-xs opacity-50 uppercase tracking-wider">Espacios</span>
+                    {data.metros && (
+                      <span className="text-xs opacity-50">~{data.metros} m² · {getM2Hint(data.metros)}</span>
+                    )}
+                  </div>
                   <div className="flex flex-wrap gap-1.5">
                     {espaciosSeleccionados.map(e => (
                       <span
@@ -403,33 +664,37 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                       </span>
                     ))}
                   </div>
-                  {data.metros && (
-                    <p className="text-xs opacity-50 mt-2">~{data.metros} m²</p>
-                  )}
                 </div>
 
-                {/* Contacto */}
                 <div className="p-3 rounded-xl bg-base-200 border border-base-300">
                   <span className="text-xs opacity-50 uppercase tracking-wider block mb-2">Contacto</span>
                   <p className="text-sm font-semibold">{data.nombre}</p>
                   <p className="text-sm opacity-60">{data.telefono} · {data.comuna}</p>
-                  {data.fecha && <p className="text-sm opacity-60">📅 {data.fecha}</p>}
+                  {(() => {
+                    const fechaTexto =
+                      data.fecha?.dia && data.fecha?.mes && data.fecha?.anio
+                        ? `${data.fecha.dia}/${data.fecha.mes}/${data.fecha.anio}`
+                        : null;
+
+                    return fechaTexto ? (
+                      <p className="text-sm opacity-60 mt-1">📅 {fechaTexto}</p>
+                    ) : null;
+                  })()}
                   {data.comentarios && <p className="text-sm opacity-60 mt-1 italic">"{data.comentarios}"</p>}
                 </div>
 
               </div>
-
               <p className="text-xs opacity-40 text-center mt-4">
-                Al continuar se abrirá WhatsApp con tu solicitud lista para enviar
+                Al enviar se abrirá WhatsApp con tu solicitud lista para confirmar
               </p>
             </div>
           )}
 
         </div>
 
-        {/* FOOTER — BOTONES */}
+        {/* ── FOOTER ── */}
         {!enviado && (
-          <div className="px-6 py-4 border-t border-base-300 flex gap-3">
+          <div className="px-6 py-4 border-t border-base-300 flex items-center gap-3">
             {step > 1 && (
               <button onClick={() => setStep(s => s - 1)} className="btn btn-ghost btn-sm gap-1">
                 <ChevronLeft size={16} />
@@ -437,6 +702,12 @@ export default function PresupuestoModal({ isOpen, onClose }) {
               </button>
             )}
             <div className="flex-1" />
+
+            {/* Indicador de selección en step 3 */}
+            {step === 3 && espaciosCount > 0 && (
+              <span className="text-xs opacity-50">{espaciosCount} seleccionado{espaciosCount !== 1 ? "s" : ""}</span>
+            )}
+
             {step < TOTAL_STEPS ? (
               <button
                 onClick={() => setStep(s => s + 1)}

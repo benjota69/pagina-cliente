@@ -88,7 +88,7 @@ export default function PreguntasFrecuentes() {
               border: "none",
             }}
           >
-            💬 Consultar por WhatsApp
+            Consultar por WhatsApp
           </a>
         </div>
 
