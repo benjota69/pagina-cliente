@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { ChevronDown, MessageCircle } from "lucide-react";
+
 const preguntas = [
   {
     q: "¿Cuánto se demora la revisión de mi cotización?",
@@ -34,60 +37,133 @@ const preguntas = [
 ];
 
 export default function PreguntasFrecuentes() {
+  const [abierto, setAbierto] = useState(null);
+
+  const toggle = (i) => setAbierto(prev => prev === i ? null : i);
+
   return (
-    <section id="preguntasfrecuentes" className="py-20 px-6 bg-base-100">
+    <section id="preguntasfrecuentes" className="py-24 px-6 bg-base-100">
       <div className="max-w-3xl mx-auto">
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
-            Preguntas frecuentes
-          </h2>
+        {/* ── HEADER ── */}
+        <div className="text-center mb-14">
+          {/* Eyebrow */}
           <p
-            className="text-sm md:text-base max-w-md mx-auto"
-            style={{ color: "rgba(232,217,160,0.5)", letterSpacing: "0.04em" }}
+            className="text-xs font-semibold tracking-[0.25em] uppercase mb-4"
+            style={{ color: "#E6B800" }}
           >
-            Todo lo que necesitas saber antes de contactarnos
+            Preguntas frecuentes
+          </p>
+
+          <h2 className="text-4xl font-bold mb-4 leading-tight">
+            Todo lo que necesitas<br />
+            <span style={{ color: "#E6B800" }}>saber antes de llamar</span>
+          </h2>
+
+          <p className="text-sm opacity-40 max-w-sm mx-auto">
+            Resolvemos tus dudas más comunes. Si no está aquí, escríbenos.
           </p>
         </div>
 
-        {/* Acordeón */}
-        <div className="flex flex-col gap-3">
-          {preguntas.map((p, i) => (
-            <div
-              key={i}
-              className="collapse collapse-arrow bg-base-200 border border-base-300 rounded-xl"
-            >
-              <input type="checkbox" />
-              <div className="collapse-title font-semibold text-base pr-8">
-                {p.q}
-              </div>
+        {/* ── ACORDEÓN ── */}
+        <div className="flex flex-col gap-2">
+          {preguntas.map((p, i) => {
+            const isOpen = abierto === i;
+            return (
               <div
-                className="collapse-content text-sm leading-relaxed"
-                style={{ color: "rgba(232,217,160,0.65)" }}
+                key={i}
+                className="rounded-xl overflow-hidden transition-all duration-300"
+                style={{
+                  border: isOpen
+                    ? "1px solid rgba(230,184,0,0.35)"
+                    : "1px solid rgba(255,255,255,0.07)",
+                  background: isOpen
+                    ? "rgba(230,184,0,0.06)"
+                    : "rgba(255,255,255,0.02)",
+                }}
               >
-                {p.a}
+                {/* Pregunta */}
+                <button
+                  onClick={() => toggle(i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+                >
+                  {/* Número + texto */}
+                  <div className="flex items-center gap-4">
+                    <span
+                      className="text-xs font-bold tabular-nums shrink-0 w-5"
+                      style={{ color: isOpen ? "#E6B800" : "rgba(255,255,255,0.2)" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className="font-semibold text-sm md:text-base transition-colors duration-200"
+                      style={{ color: isOpen ? "#E6B800" : "rgba(255,255,255,0.85)" }}
+                    >
+                      {p.q}
+                    </span>
+                  </div>
+
+                  {/* Chevron */}
+                  <ChevronDown
+                    size={18}
+                    className="shrink-0 transition-transform duration-300"
+                    style={{
+                      color: isOpen ? "#E6B800" : "rgba(255,255,255,0.3)",
+                      transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </button>
+
+                {/* Respuesta */}
+                <div
+                  className="overflow-hidden transition-all duration-300"
+                  style={{
+                    maxHeight: isOpen ? "200px" : "0px",
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                >
+                  <p
+                    className="px-6 pb-5 text-sm leading-relaxed"
+                    style={{
+                      color: "rgba(255,255,255,0.7)",
+                      paddingLeft: "calc(1.5rem + 1.25rem + 1rem)", // alineado con el texto de la pregunta
+                    }}
+                  >
+                    {p.a}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* CTA abajo */}
-        <div className="text-center mt-10">
-          <p className="text-sm opacity-50 mb-4">
-            ¿Tienes otra pregunta? Escríbenos directamente
-          </p>
+        {/* ── CTA ── */}
+        <div
+          className="mt-12 rounded-2xl p-8 text-center flex flex-col items-center gap-5"
+          style={{
+            background: "rgba(230,184,0,0.05)",
+            border: "1px solid rgba(230,184,0,0.15)",
+          }}
+        >
+          <div>
+            <p className="font-semibold text-base mb-1">¿Tienes otra pregunta?</p>
+            <p className="text-sm opacity-40">
+              Escríbenos y te respondemos en minutos.
+            </p>
+          </div>
+
           <a
             href="https://wa.me/56944235539"
             target="_blank"
             rel="noreferrer"
-            className="btn btn-md rounded-xl gap-2"
+            className="flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95"
             style={{
               background: "linear-gradient(135deg, #E6B800, #C9A84C)",
               color: "#0A0A0A",
-              border: "none",
+              boxShadow: "0 4px 20px rgba(230,184,0,0.25)",
             }}
           >
+            <MessageCircle size={17} />
             Consultar por WhatsApp
           </a>
         </div>
