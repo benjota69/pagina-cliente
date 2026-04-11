@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 // ─────────────────────────────────────────────────────────────
 //  DATA — reemplaza src con tus fotos reales
-//  Ponlas en /public/trabajos/ y usa "/trabajos/foto1.jpg"
+//  Ponlas en /public/trabajos/ y usa "/trabajos/foto1.webp"
 // ─────────────────────────────────────────────────────────────
 const trabajos = [
   {
     id: 1,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-26-58 2.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-26-58 2.webp",
     titulo: "Mural artístico exterior",
     descripcion: "Pintura de mural decorativo con diseño colorido de aves y vegetación sobre fachada exterior. Trabajo artístico con pintura acrílica de alta durabilidad.",
     comuna: "Viña del Mar",
@@ -18,7 +18,7 @@ const trabajos = [
   {
     id: 2,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-26-59.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-26-59.webp",
     titulo: "Edificio institucional",
     descripcion: "Pintura completa de fachada institucional con mural artístico incluido. Aplicación de pintura exterior color celeste con terminación uniforme y detalles en tonos contrastantes.",
     comuna: "Valparaíso",
@@ -26,7 +26,7 @@ const trabajos = [
   {
     id: 3,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-26-59 3.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-26-59 3.webp",
     titulo: "Living-cocina concepto abierto",
     descripcion: "Pintura interior blanca mate en living-cocina de concepto abierto. Muros, cielo y molduras con terminación impecable. Cortes limpios en unión con muebles de cocina.",
     comuna: "Quilpué",
@@ -34,7 +34,7 @@ const trabajos = [
   {
     id: 4,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-00 2.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-00 2.webp",
     titulo: "Casa moderna dos pisos",
     descripcion: "Pintura exterior completa en casa de dos pisos con diseño contemporáneo. Combinación de gris claro con acento rojo en volumen lateral. Terminación pareja en estucado.",
     comuna: "Viña del Mar",
@@ -42,7 +42,7 @@ const trabajos = [
   {
     id: 5,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-02 3.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-02 3.webp",
     titulo: "Casa elevada con acento turquesa",
     descripcion: "Pintura de fachada en casa elevada sobre estructura metálica. Estucado gris con detalle turquesa en alero y muro lateral. Protección UV y resistencia a la intemperie.",
     comuna: "Valparaíso",
@@ -50,7 +50,7 @@ const trabajos = [
   {
     id: 6,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-01 4.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-01 4.webp",
     titulo: "Living con ventanales",
     descripcion: "Pintura blanca premium en living con doble altura y ventanales de piso a cielo. Terminación perfecta en muros, cielo y marcos. Preparación completa de superficies.",
     comuna: "Quilpué",
@@ -58,7 +58,7 @@ const trabajos = [
   {
     id: 7,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-01 2.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-01 2.webp",
     titulo: "Edificio modular multicolor",
     descripcion: "Pintura decorativa en edificio modular de tres pisos con paneles de colores rojo, verde, negro y blanco. Trabajo en altura con escalera exterior metálica.",
     comuna: "Viña del Mar",
@@ -66,7 +66,7 @@ const trabajos = [
   {
     id: 8,
     categoria: "terminaciones",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-03.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-03.webp",
     titulo: "Casa con revestimiento metálico",
     descripcion: "Pintura y terminaciones en casa con revestimiento de zinc acanalado gris y detalles en verde oliva. Marcos de madera barnizados y cielo de alero pintado.",
     comuna: "Villa Alemana",
@@ -74,7 +74,7 @@ const trabajos = [
   {
     id: 9,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-08.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-08.webp",
     titulo: "Living doble altura",
     descripcion: "Pintura interior blanca en living con doble altura y ventana superior. Piso de madera, muros lisos con terminación mate. Ambiente luminoso y limpio.",
     comuna: "Quilpué",
@@ -82,7 +82,7 @@ const trabajos = [
   {
     id: 10,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-04 6.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-04 6.webp",
     titulo: "Centro comunitario",
     descripcion: "Pintura exterior en centro comunitario con paneles turquesa y revestimiento de madera natural. Trabajo de gran escala con terminación profesional en fachada completa.",
     comuna: "Valparaíso",
@@ -90,7 +90,7 @@ const trabajos = [
   {
     id: 11,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-09%205.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-09%205.webp",
     titulo: "Interiores con puertas Magenta",
     descripcion: "Pintura interior en pasillos y desniveles con muros blancos de extra cobertura que amplían y llenan de luz el espacio. Destaca el fino esmalte color magenta aplicado en puertas y marcos, logrando un contraste moderno con una terminación impecable.",
     comuna: "Quilpué",
@@ -98,7 +98,7 @@ const trabajos = [
   {
     id: 12,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-07.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-07.webp",
     titulo: "Sala de estar luminosa",
     descripcion: "Pintura interior premium en sala de estar. Muros blancos de alta lavabilidad que potencian la luz natural y contrastan elegantemente con los ventanales negros y el piso de madera. Acabados lisos sin imperfecciones.",
     comuna: "Concón",
@@ -106,7 +106,7 @@ const trabajos = [
   {
     id: 13,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-10%202.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-10%202.webp",
     titulo: "Piscina techada",
     descripcion: "Pintura especializada de alta resistencia para piscina interior. Aplicación de revestimiento azul vibrante diseñado para soportar humedad constante y productos químicos, junto con la renovación de los pilares estructurales blancos del recinto.",
     comuna: "Reñaca",
@@ -114,7 +114,7 @@ const trabajos = [
   {
     id: 14,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-06%205.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-06%205.webp",
     titulo: "Dormitorio con piso nuevo",
     descripcion: "Renovación integral de habitación interior. Aplicación de pintura blanca mate en muros y cielo para maximizar la luminosidad, complementada con la instalación completa de un nuevo piso flotante tono madera que brinda calidez y modernidad al espacio.",
     comuna: "Concón",
@@ -122,7 +122,7 @@ const trabajos = [
   {
     id: 15,
     categoria: "interior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-02.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-02.webp",
     titulo: "Espacios de doble altura",
     descripcion: "Pintura interior de espacios amplios con techos en desnivel. Se utilizó esmalte al agua blanco de primera calidad para generar una continuidad visual impecable entre los muros, el cielo inclinado y los grandes ventanales negros.",
     comuna: "Concón",
@@ -130,7 +130,7 @@ const trabajos = [
   {
     id: 16,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-01%203.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-01%203.webp",
     titulo: "Casa de diseño metálico vanguardista",
     descripcion: "Pintura exterior sobre fachada revestida en planchas acanaladas. Diseño llamativo que combina un tono gris acero industrial con acentos muy vibrantes en verde lima en la entrada. Se aplicó pintura anticorrosiva de alta resistencia a los rayos UV.",
     comuna: "Valparaíso",
@@ -138,7 +138,7 @@ const trabajos = [
   {
     id: 17,
     categoria: "exterior",
-    src: "/trabajos/PHOTO-2026-03-18-20-27-00%205.jpg",
+    src: "/trabajos/PHOTO-2026-03-18-20-27-00%205.webp",
     titulo: "Fachada modular multicolor",
     descripcion: "Proyecto de pintura industrial para estructura modular de tres niveles. Se realizó un trabajo vertical de alta precisión para trazar franjas de colores sólidos (verde, negro, rojo y blanco), aplicando esmalte sintético para máxima protección a la intemperie.",
     comuna: "Viña del Mar",
@@ -146,7 +146,7 @@ const trabajos = [
   {
     id: 18,
     categoria: "interior",
-    src: "/trabajos/Image2026-03-2312.02.53.jpeg",
+    src: "/trabajos/Image2026-03-2312.02.53.webp",
     titulo: "Salón con vigas a la vista",
     descripcion: "Pintura interior en amplio salón y áreas comunes. Contraste espectacular entre la base blanca luminosa de los muros y el esmalte sintético negro mate aplicado en las vigas y pilares metálicos. Resaltan detalles en amarillo vibrante en las puertas.",
     comuna: "Quilpué",
@@ -154,7 +154,7 @@ const trabajos = [
   {
     id: 19,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2782.jpg",
+    src: "/trabajos/IMG_2782.webp",
     titulo: "Muro decorativo 3D premium",
     descripcion: "Instalación profesional de placas de yeso 3D Imperio Romano. Modelo geométrico de pétalos terminado en esmalte grafito oscuro; aporta un contraste profundo, textura y un diseño ultramoderno que convierte la pared en el centro visual del salón.",
     comuna: "Viña del Mar",
@@ -162,7 +162,7 @@ const trabajos = [
   {
     id: 20,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2853.jpg",
+    src: "/trabajos/IMG_2853.webp",
     titulo: "Comedor con relieve arquitectónico",
     descripcion: "Renovación integral de sala comedor con nuestras placas de yeso 3D Imperio Romano. Acabado en blanco nieve mate que añade volumen, profundidad y un estilo contemporáneo, elevando la estética de todo el espacio sin sobrecargarlo visualmente.",
     comuna: "Concón",
@@ -170,7 +170,7 @@ const trabajos = [
   {
     id: 21,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2760.jpg",
+    src: "/trabajos/IMG_2760.webp",
     titulo: "Muro ondas en tono neutro",
     descripcion: "Instalación de paneles de yeso 3D con diseño de ondas continuas, terminado en un sofisticado color gris mate. Ideal para pasillos o recibidores, logrando una sensación de movimiento y vanguardia desde la entrada.",
     comuna: "Valparaíso",
@@ -178,7 +178,7 @@ const trabajos = [
   {
     id: 22,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2768.jpg",
+    src: "/trabajos/IMG_2768.webp",
     titulo: "Revestimiento tipo piedra rústica",
     descripcion: "Aplicación de placas 3D con patrón cuadrado irregular. Pintadas de blanco brillante para maximizar la luz en el comedor, logrando una textura de piedra rústica muy limpia y fácil de mantener.",
     comuna: "Quilpué",
@@ -186,7 +186,7 @@ const trabajos = [
   {
     id: 23,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2771.jpg",
+    src: "/trabajos/IMG_2771.webp",
     titulo: "Fondo para Home Theater",
     descripcion: "Diseño espectacular para zona de entretenimiento. Las placas geométricas en forma de diamante, junto con el acabado en gris carbón oscuro mate, absorben reflejos indeseados y concentran toda la atención en la pantalla.",
     comuna: "Viña del Mar",
@@ -194,7 +194,7 @@ const trabajos = [
   {
     id: 24,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2773.jpg",
+    src: "/trabajos/IMG_2773.webp",
     titulo: "Enmarque de chimenea 3D",
     descripcion: "Trabajo fino de instalación de yeso 3D moldeando el espacio alrededor de una estufa insertable. El revestimiento blanco texturado contrasta hermosamente con la luz del fuego simulado, creando un ambiente extra acogedor.",
     comuna: "Villa Alemana",
@@ -202,7 +202,7 @@ const trabajos = [
   {
     id: 25,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2776.jpg",
+    src: "/trabajos/IMG_2776.webp",
     titulo: "Muro texturizado para TV",
     descripcion: "Instalación de paneles de yeso 3D modelo floral para pared de televisión. Con un sutil color gris claro perla, el muro resalta ante la luz de la pantalla sin saturar el espacio visual de la habitación.",
     comuna: "Concón",
@@ -210,7 +210,7 @@ const trabajos = [
   {
     id: 26,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2780.jpg",
+    src: "/trabajos/IMG_2780.webp",
     titulo: "Living con detalles de acento",
     descripcion: "Instalación creativa de placas 3D blancas circulares intercaladas con cuadrados lisos pintados en color celeste menta. Un diseño lúdico y retro que entrega muchísima personalidad al área del sofá.",
     comuna: "Valparaíso",
@@ -218,7 +218,7 @@ const trabajos = [
   {
     id: 27,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2855.jpg",
+    src: "/trabajos/IMG_2855.webp",
     titulo: "Pared geométrica perla",
     descripcion: "Revestimiento 3D sobre muro principal utilizando un hermoso modelo de pétalos y estrellas en esmalte perlado suave. Una terminación impecable que sirve como el respaldo perfecto para el mobiliario y la decoración del salón.",
     comuna: "Quilpué",
@@ -226,7 +226,7 @@ const trabajos = [
   {
     id: 28,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2772.jpg",
+    src: "/trabajos/IMG_2772.webp",
     titulo: "Enmarque de estufa y TV",
     descripcion: "Elegante proyecto de yeso 3D en modelo rústico revestiendo la pared de la chimenea eléctrica y soportando un televisor. Una integración perfecta entre tecnología y diseño cálido para la sala de estar.",
     comuna: "Villa Alemana",
@@ -234,7 +234,7 @@ const trabajos = [
   {
     id: 29,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2778.jpg",
+    src: "/trabajos/IMG_2778.webp",
     titulo: "Muro diamante oscuro",
     descripcion: "Imponente instalación geométrica terminada en un profundo tono oscuro. El patrón de diamantes 3D juega maravillosamente con las luces superiores creando un ambiente de cine en casa premium.",
     comuna: "Viña del Mar",
@@ -242,7 +242,7 @@ const trabajos = [
   {
     id: 30,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2779.jpg",
+    src: "/trabajos/IMG_2779.webp",
     titulo: "Cine en casa inmersivo",
     descripcion: "Variante de diseño en muro principal de entretenimiento. Las placas 3D oscuras mate previenen reflejos de la pantalla aportando un fondo dinámico que resalta durante las proyecciones nocturnas.",
     comuna: "Concón",
@@ -250,7 +250,7 @@ const trabajos = [
   {
     id: 31,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2781.jpg",
+    src: "/trabajos/IMG_2781.webp",
     titulo: "Decoración clásica y relieve",
     descripcion: "Instalación de paneles de yeso 3D Imperio Romano modelo floral. El contraste del patrón gris moderno con el mobiliario clásico de madera y butacas logra un equilibrio transicional sumamente elegante.",
     comuna: "Valparaíso",
@@ -258,7 +258,7 @@ const trabajos = [
   {
     id: 32,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2758.jpg",
+    src: "/trabajos/IMG_2758.webp",
     titulo: "Bloques escalonados modernos",
     descripcion: "Diseño urbano y vanguardista utilizando modelo de placas en bloques escalonados. El juego de volúmenes cuadrados de distintas profundidades genera un patrón tipo laberinto ideal para amplios salones.",
     comuna: "Quilpué",
@@ -266,7 +266,7 @@ const trabajos = [
   {
     id: 33,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2761.jpg",
+    src: "/trabajos/IMG_2761.webp",
     titulo: "Diseño diamante en color vibrante",
     descripcion: "Audaz aplicación de placas 3D diamante acabadas en esmalte magenta intenso. Demostramos que las terminaciones 3D no se limitan a colores neutros; pueden ser protagonistas audaces en dormitorios o recibidores.",
     comuna: "Valparaíso",
@@ -274,7 +274,7 @@ const trabajos = [
   {
     id: 34,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2765.jpg",
+    src: "/trabajos/IMG_2765.webp",
     titulo: "Muro Tetris multicolor",
     descripcion: "Un proyecto sumamente lúdico y creativo. Placas 3D base en fucsia con bloques individuales pintados a mano en diferentes colores de acento. Excelente elección para cuartos infantiles, salas de juego o negocios modernos.",
     comuna: "Concón",
@@ -282,7 +282,7 @@ const trabajos = [
   {
     id: 35,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2766.jpg",
+    src: "/trabajos/IMG_2766.webp",
     titulo: "Respaldo circular gris carbón",
     descripcion: "Aplicación de paneles 3D modelo circular instalados de piso a techo, creando un majestuoso respaldo de cama arquitectónico. El tono gris mate aporta serenidad y descanso a la habitación principal.",
     comuna: "Viña del Mar",
@@ -290,7 +290,7 @@ const trabajos = [
   {
     id: 36,
     categoria: "terminaciones",
-    src: "/trabajos/IMG_2770.jpg",
+    src: "/trabajos/IMG_2770.webp",
     titulo: "Ondas continuas en pasillo",
     descripcion: "Revestimiento de pasillo principal con placas 3D diseño ondas. Pintado en un blanco inmaculado, este diseño fomenta el flujo visual, aportando un movimiento suave y continuo desde la puerta de ingreso.",
     comuna: "Quilpué",
