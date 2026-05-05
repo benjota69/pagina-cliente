@@ -879,7 +879,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     {[
                       { key: "dia", placeholder: "Dia", max: 2 },
                       { key: "mes", placeholder: "Mes", max: 2 },
-                      { key: "anio", placeholder: "Ano", max: 4 },
+                      { key: "anio", placeholder: "Año", max: 4 },
                     ].map(({ key, placeholder, max }) => (
                       <input
                         key={key}
