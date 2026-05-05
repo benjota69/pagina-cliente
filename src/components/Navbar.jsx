@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, PaintBucket } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
@@ -23,7 +23,7 @@ export default function Navbar() {
     { label: "Proceso", href: isHome ? "#proceso" : "/#proceso" },
     { label: "Comparación", href: isHome ? "#tablacomparacion" : "/#tablacomparacion" },
     { label: "Trabajos", href: "/trabajos" },
-    { label: "FAQ", href: isHome ? "#preguntasfrecuentes" : "/#preguntasfrecuentes" }
+    { label: "FAQ", href: isHome ? "#preguntasfrecuentes" : "/#preguntasfrecuentes" },
   ];
 
   return (
@@ -31,8 +31,8 @@ export default function Navbar() {
       className={[
         "sticky top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-base-100/95 backdrop-blur-md shadow-sm border-b border-base-200"
-          : "bg-base-100 border-b border-base-200",
+          ? "bg-black/95 backdrop-blur-md shadow-lg border-b border-zinc-800 text-[#E6B800]"
+          : "bg-black border-b border-zinc-800 text-[#E6B800]",
       ].join(" ")}
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -41,8 +41,13 @@ export default function Navbar() {
           {/* ── LOGO ── */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 font-black text-xl tracking-tight hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 font-black text-xl tracking-tight hover:opacity-80 transition-opacity text-[#E6B800]"
           >
+            <img
+              src="/logo/logo_navbar.webp"
+              alt="Imperio Romano"
+              className="h-9 w-9 object-contain rounded"
+            />
             <span>Imperio Romano</span>
           </Link>
 
@@ -53,7 +58,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className="px-4 py-2 rounded-lg text-sm font-medium
-                           opacity-70 hover:opacity-100 hover:bg-base-200
+                           opacity-80 hover:opacity-100 hover:bg-white/10 text-[#E6B800]
                            transition-all duration-150"
               >
                 {link.label}
@@ -61,12 +66,18 @@ export default function Navbar() {
             ))}
 
             {/* Separador */}
-            <div className="w-px h-5 bg-base-300 mx-2" />
+            <div className="w-px h-5 bg-white/20 mx-2" />
 
             {/* CTA */}
             <button
               onClick={() => window.dispatchEvent(new Event("abrirCotizador"))}
-              className="btn btn-neutral btn-sm rounded-xl px-5"
+              className="btn btn-sm rounded-xl px-5 font-semibold transition-all duration-200 hover:opacity-90"
+              style={{
+                background: "rgba(230,184,0,0.08)",
+                border: "1.5px solid #C9A84C",
+                color: "#E6B800",
+                boxShadow: "0 0 14px rgba(201,168,76,0.18)",
+              }}
             >
               Cotizar ahora
             </button>
@@ -76,7 +87,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Abrir menú"
-            className="md:hidden btn btn-ghost btn-sm btn-square"
+            className="md:hidden btn btn-ghost btn-sm btn-square text-[#E6B800] hover:bg-white/10 border-0"
           >
             <div className="relative w-5 h-5">
               <Menu
@@ -104,14 +115,14 @@ export default function Navbar() {
             open ? "max-h-96 opacity-100 pb-4" : "max-h-0 opacity-0",
           ].join(" ")}
         >
-          <div className="border-t border-base-200 pt-3 flex flex-col gap-1">
+          <div className="border-t border-zinc-800 pt-3 flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="px-3 py-2.5 rounded-xl text-sm font-medium
-                           opacity-70 hover:opacity-100 hover:bg-base-200
+                           opacity-80 hover:opacity-100 hover:bg-white/10 text-[#E6B800]
                            transition-all duration-150"
               >
                 {link.label}

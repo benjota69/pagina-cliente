@@ -18,7 +18,7 @@ const IMG_AFTER = "/trabajos/Image2026-03-2312.02.53.webp";
 const BADGES = ["Resultados reales", "Sin filtros", "Calidad garantizada"];
 const STATS = [
   { number: "+200", label: "Trabajos completados" },
-  { number: "98%", label: "Clientes satisfechos" },
+  { number: "100%", label: "Clientes satisfechos" },
 ];
 const TITLE_WORDS = [
   { text: "Antes", gold: false },
@@ -148,7 +148,7 @@ export default function BeforeAfter() {
 
   /* ═══════════════════════════════  JSX  ══════════════════════════════ */
   return (
-    <section ref={sectionRef} id="antes-despues" className="py-24 bg-base-100 text-center overflow-hidden">
+    <section ref={sectionRef} id="antes-despues" className="py-24 bg-[#111111] text-center overflow-hidden">
 
       {/* ── Animations ────────────────────────── */}
       <style>{`
@@ -181,7 +181,7 @@ export default function BeforeAfter() {
                   animation: activeWord === i ? "ba-shimmer 3s linear infinite" : "none",
                   filter: activeWord === i ? "drop-shadow(0 0 22px rgba(212,175,55,0.5))" : "none",
                 }
-                : { color: "#9ca3af" }),
+                : { color: "rgba(255,255,255,0.82)" }),
             }}
           >
             {w.text}
@@ -192,7 +192,7 @@ export default function BeforeAfter() {
       {/* ── Subtitle ──────────────────────────── */}
       <p
         className="text-sm md:text-base max-w-md mx-auto mb-6"
-        style={{ color: "rgba(232,217,160,0.5)", letterSpacing: "0.06em" }}
+        style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.06em" }}
       >
         Transforma tu espacio con nuestro trabajo profesional
       </p>
@@ -227,8 +227,8 @@ export default function BeforeAfter() {
           style={{
             aspectRatio: "16/9",
             cursor: "ew-resize",
-            boxShadow:
-              "0 0 0 1px rgba(212,175,55,0.18), 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.06)",
+              boxShadow:
+              "0 0 0 1px rgba(212,175,55,0.2), 0 18px 48px rgba(15,23,42,0.22), 0 0 60px rgba(212,175,55,0.08)",
           }}
         >
           {/* AFTER image (full width behind) */}
@@ -385,7 +385,7 @@ export default function BeforeAfter() {
       <p
         className="mt-6 text-xs font-semibold tracking-widest uppercase select-none"
         style={{
-          color: "rgba(212,175,55,0.4)",
+          color: "rgba(255,255,255,0.38)",
           animation: "ba-pulse 2.8s ease-in-out infinite",
         }}
       >
@@ -418,7 +418,7 @@ export default function BeforeAfter() {
               </div>
               <div
                 className="text-[10px] md:text-xs font-semibold tracking-widest uppercase mt-1"
-                style={{ color: "rgba(255,255,255,0.3)" }}
+                style={{ color: "rgba(255,255,255,0.42)" }}
               >
                 {s.label}
               </div>

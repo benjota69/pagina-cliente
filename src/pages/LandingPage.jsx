@@ -4,50 +4,45 @@ import Services from "../components/Services";
 import Procesos from "../components/Procesos";
 import BeforeAfter from "../components/BeforeAfter";
 import Footer from "../components/Footer";
-import Testimonios from "../components/Testimonios"; // DESACTIVADO POR AHORA.
 import VideoRemodelacion from "../components/VideoRemodelacion";
-import PreguntasFrecuentes from "../components/PreguntasFrecuentes"
+import PreguntasFrecuentes from "../components/PreguntasFrecuentes";
 import WhatsappButton from "../components/WhatsappButton";
 import TablaComparacion from "../components/TablaComparacion";
 import CotizarPresupuesto from "../components/CotizarPresupuesto";
 
+function GoldDivider() {
+  return (
+    <div
+      className="h-px w-full"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.3) 20%, rgba(230,184,0,0.65) 50%, rgba(201,168,76,0.3) 80%, transparent 100%)",
+      }}
+    />
+  );
+}
+
 export default function LandingPage() {
   return (
     <div>
-
-      {/* NAVBAR */}
       <Navbar />
-
-      {/* HERO */}
       <HeroSlider />
-
-      {/* SERVICIOS */}
+      <GoldDivider />
       <Services />
-
-      {/* PROCESO */}
-      <Procesos />
-
-      <TablaComparacion />
-
-      {/* ANTES Y DESPUÉS */}
+      <GoldDivider />
       <BeforeAfter />
-
-      {/* VIDEO DE REMODELACIÓN */}
+      <GoldDivider />
+      <Procesos compact />
+      <GoldDivider />
+      <TablaComparacion compact />
+      <GoldDivider />
       <VideoRemodelacion />
-
-      {/* BOTÓN DE TESTIMONIO */}
+      <GoldDivider />
       <PreguntasFrecuentes />
-
-      {/* COTIZACIÓN DE PRESUPUESTO */}
+      <GoldDivider />
       <CotizarPresupuesto />
-
-      {/* BOTÓN DE WHATSAPP */}
       <WhatsappButton />
-
-      {/* FOOTER */}
       <Footer />
-
-
     </div>
   );
 }

@@ -42,15 +42,15 @@ export default function PreguntasFrecuentes() {
   const toggle = (i) => setAbierto(prev => prev === i ? null : i);
 
   return (
-    <section id="preguntasfrecuentes" className="py-24 px-6 bg-base-100">
+    <section id="preguntasfrecuentes" className="py-24 px-4 md:px-6 bg-white">
       <div className="max-w-3xl mx-auto">
 
         {/* ── HEADER ── */}
         <div className="text-center mb-14">
           {/* Eyebrow */}
           <p
-            className="text-xs font-semibold tracking-[0.25em] uppercase mb-4"
-            style={{ color: "#E6B800" }}
+            className="text-sm font-bold tracking-[0.3em] uppercase mb-4"
+            style={{ color: "#B8932F", textShadow: "0 1px 2px rgba(0,0,0,0.08)" }}
           >
             Preguntas frecuentes
           </p>
@@ -60,7 +60,7 @@ export default function PreguntasFrecuentes() {
             <span style={{ color: "#E6B800" }}>saber antes de llamar</span>
           </h2>
 
-          <p className="text-sm opacity-40 max-w-sm mx-auto">
+          <p className="text-sm text-zinc-600 max-w-sm mx-auto">
             Resolvemos tus dudas más comunes. Si no está aquí, escríbenos.
           </p>
         </div>
@@ -76,10 +76,10 @@ export default function PreguntasFrecuentes() {
                 style={{
                   border: isOpen
                     ? "1px solid rgba(230,184,0,0.35)"
-                    : "1px solid rgba(255,255,255,0.07)",
+                    : "1px solid #E4E8EE",
                   background: isOpen
-                    ? "rgba(230,184,0,0.06)"
-                    : "rgba(255,255,255,0.02)",
+                    ? "#FFF8E1"
+                    : "#FFFFFF",
                 }}
               >
                 {/* Pregunta */}
@@ -91,13 +91,13 @@ export default function PreguntasFrecuentes() {
                   <div className="flex items-center gap-4">
                     <span
                       className="text-xs font-bold tabular-nums shrink-0 w-5"
-                      style={{ color: isOpen ? "#E6B800" : "rgba(255,255,255,0.2)" }}
+                      style={{ color: isOpen ? "#B8932F" : "#9CA3AF" }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
                       className="font-semibold text-sm md:text-base transition-colors duration-200"
-                      style={{ color: isOpen ? "#E6B800" : "rgba(255,255,255,0.85)" }}
+                      style={{ color: isOpen ? "#8A6A1F" : "#111827" }}
                     >
                       {p.q}
                     </span>
@@ -108,7 +108,7 @@ export default function PreguntasFrecuentes() {
                     size={18}
                     className="shrink-0 transition-transform duration-300"
                     style={{
-                      color: isOpen ? "#E6B800" : "rgba(255,255,255,0.3)",
+                      color: isOpen ? "#B8932F" : "#94A3B8",
                       transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                     }}
                   />
@@ -125,7 +125,7 @@ export default function PreguntasFrecuentes() {
                   <p
                     className="px-6 pb-5 text-sm leading-relaxed"
                     style={{
-                      color: "rgba(255,255,255,0.7)",
+                      color: "#4B5563",
                       paddingLeft: "calc(1.5rem + 1.25rem + 1rem)", // alineado con el texto de la pregunta
                     }}
                   >
@@ -141,13 +141,13 @@ export default function PreguntasFrecuentes() {
         <div
           className="mt-12 rounded-2xl p-8 text-center flex flex-col items-center gap-5"
           style={{
-            background: "rgba(230,184,0,0.05)",
-            border: "1px solid rgba(230,184,0,0.15)",
+            background: "#FFF9E8",
+            border: "1px solid #F2D57A",
           }}
         >
           <div>
             <p className="font-semibold text-base mb-1">¿Tienes otra pregunta?</p>
-            <p className="text-sm opacity-40">
+            <p className="text-sm text-zinc-600">
               Escríbenos y te respondemos en minutos.
             </p>
           </div>

@@ -255,7 +255,7 @@ export default function BeforeAfter() {
       <div className="flex gap-10 justify-center flex-wrap mt-14">
         {[
           { number: "+200", label: "Trabajos completados" },
-          { number: "98%",  label: "Clientes satisfechos" },
+          { number: "100%",  label: "Clientes satisfechos" },
           { number: "5★",   label: "Valoración promedio"  },
         ].map((s, i) => (
           <div key={i} className="flex items-center gap-10">

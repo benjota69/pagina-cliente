@@ -9,12 +9,12 @@
     --color-secondary-content: #0A0A0A;
     --color-accent: #F0C040;
     --color-accent-content: #0A0A0A;
-    --color-neutral: #1A1A1A;
-    --color-neutral-content: #F5DFA0;
-    --color-base-100: #111111;
-    --color-base-200: #1C1C1C;
-    --color-base-300: #2A2A2A;
-    --color-base-content: #F5DFA0;
+    --color-neutral: #111111;
+    --color-neutral-content: #FFFFFF;
+    --color-base-100: #F4F5F7;
+    --color-base-200: #ECEFF3;
+    --color-base-300: #DDE2E8;
+    --color-base-content: #111111;
     --color-info: #7EAED4;
     --color-success: #6DBF8A;
     --color-warning: #C9A84C;
@@ -24,4 +24,9 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Lora', Georgia, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', 'Times New Roman', serif;
 }

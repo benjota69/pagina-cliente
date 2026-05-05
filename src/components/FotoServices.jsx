@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 // ─────────────────────────────────────────────────────────────
 //  DATA — reemplaza src con tus fotos reales
@@ -309,7 +309,11 @@ const getLabel = (key) => categorias.find((c) => c.key === key)?.label ?? key;
 const getBadge = (key) => categorias.find((c) => c.key === key)?.badge ?? "badge-neutral";
 
 export default function FotoServices() {
-  const [filtro, setFiltro] = useState("todos");
+  const [searchParams] = useSearchParams();
+  const categoriaInicial = categorias.some((c) => c.key === searchParams.get("categoria"))
+    ? searchParams.get("categoria")
+    : "todos";
+  const [filtro, setFiltro] = useState(categoriaInicial);
   const [modal, setModal] = useState(null);
   const [visible, setVisible] = useState(false);
 
