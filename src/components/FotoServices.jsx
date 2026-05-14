@@ -302,7 +302,6 @@ const categorias = [
   { key: "interior", label: "Interior", badge: "badge-info" },
   { key: "exterior", label: "Exterior", badge: "badge-success" },
   { key: "terminaciones", label: "Terminaciones", badge: "badge-warning" },
-  { key: "reparaciones", label: "Reparaciones", badge: "badge-error" },
 ];
 
 const getLabel = (key) => categorias.find((c) => c.key === key)?.label ?? key;
