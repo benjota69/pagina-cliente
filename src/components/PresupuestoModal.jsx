@@ -476,11 +476,11 @@ export default function PresupuestoModal({ isOpen, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-3 backdrop-blur-sm sm:p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 backdrop-blur-sm sm:p-4"
       onClick={handleClose}
     >
       <div
-        className="flex h-[min(92vh,860px)] w-full max-w-5xl flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#120d06] text-white shadow-2xl"
+        className="flex max-h-[96vh] min-h-0 w-full max-w-5xl flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#120d06] text-white shadow-2xl sm:max-h-[92vh]"
         onClick={(event) => event.stopPropagation()}
         style={{ animation: "slideUp 0.25s ease-out" }}
       >
@@ -528,18 +528,18 @@ export default function PresupuestoModal({ isOpen, onClose }) {
               </div>
 
               <div className="mt-4 rounded-2xl border border-[#E6B800]/15 bg-[#E6B800]/8 px-4 py-3">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="min-w-0">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-w-0 flex-1">
                     <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#E6B800]/90">
                       {currentGuide.eyebrow}
                     </p>
-                    <p className="truncate text-sm font-semibold text-white">{currentGuide.title}</p>
+                    <p className="text-sm font-semibold text-white sm:truncate">{currentGuide.title}</p>
                   </div>
-                  <details className="shrink-0">
-                    <summary className="cursor-pointer list-none rounded-full border border-white/10 px-3 py-1 text-xs text-white/70 marker:hidden hover:bg-white/5">
+                  <details className="w-full sm:w-auto sm:max-w-xl sm:shrink-0">
+                    <summary className="inline-flex w-full cursor-pointer list-none items-center justify-center rounded-full border border-white/10 px-3 py-2 text-xs text-white/70 marker:hidden hover:bg-white/5 sm:w-auto">
                       Ver ayuda
                     </summary>
-                    <div className="mt-3 max-w-xl rounded-2xl border border-white/10 bg-black/10 p-3 text-sm leading-6 text-white/62">
+                    <div className="mt-3 w-full rounded-2xl border border-white/10 bg-black/10 p-3 text-sm leading-6 text-white/62 sm:max-w-xl">
                       {currentGuide.description}
                     </div>
                   </details>
@@ -667,7 +667,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                           type="button"
                           key={space.key}
                           onClick={() => toggleEspacio(space.key)}
-                          className={`flex items-start gap-3 rounded-2xl border p-4 text-left transition-all ${
+                          className={`flex min-w-0 items-start gap-3 rounded-2xl border p-4 text-left transition-all ${
                             selected
                               ? "border-[#E6B800] bg-[#E6B800]/10"
                               : "border-white/10 bg-white/[0.03] hover:border-white/20 hover:bg-white/[0.05]"
@@ -753,14 +753,14 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                 </div>
 
                 <div className="mt-4 rounded-3xl border border-white/10 bg-black/10 p-4">
-                  <div className="flex flex-wrap items-end justify-between gap-3">
-                    <div>
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div className="min-w-0">
                       <p className="text-sm font-semibold text-white">Metros cuadrados aproximados</p>
                       <p className="mt-1 text-xs leading-5 text-white/45">
                         Parte desde 0 y mueve la barra solo cuando quieras confirmar una referencia.
                       </p>
                     </div>
-                    <div className="text-right">
+                    <div className="self-start text-left sm:self-auto sm:text-right">
                       <p className="text-3xl font-bold text-[#E6B800]">
                         {data.metrosSuperioresA200 ? "200+" : data.metros}
                       </p>
@@ -780,9 +780,9 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     style={{ accentColor: "#E6B800" }}
                   />
 
-                  <div className="mt-2 flex items-center justify-between text-xs">
+                  <div className="mt-2 grid grid-cols-[auto,minmax(0,1fr),auto] items-center gap-2 text-xs">
                     <span className="text-white/30">0 m2</span>
-                    <span className="font-medium text-[#E6B800]/85">
+                    <span className="text-center font-medium text-[#E6B800]/85">
                       {data.metrosSuperioresA200
                         ? "Proyecto grande"
                         : parseInt(data.metros, 10) > 0
@@ -875,7 +875,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                   <label className="mb-2 block text-sm font-medium text-white/80">
                     Fecha estimada de inicio (opcional)
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                     {[
                       { key: "dia", placeholder: "Dia", max: 2 },
                       { key: "mes", placeholder: "Mes", max: 2 },
@@ -939,9 +939,9 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                 </div>
 
                 <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
                     <p className="text-xs uppercase tracking-[0.16em] text-white/40">Espacios y m2</p>
-                    <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span className="max-w-full self-start break-words rounded-full bg-white/5 px-3 py-1 text-xs text-white/60 sm:self-auto">
                       {data.metrosSuperioresA200
                         ? "Mas de 200 m2"
                         : parseInt(data.metros, 10) > 0
@@ -980,16 +980,16 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                 <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-5">
                   <p className="text-xs uppercase tracking-[0.16em] text-white/40">Contacto</p>
                   <p className="mt-2 text-base font-semibold text-white">{data.nombre}</p>
-                  <p className="mt-1 text-sm text-white/65">
+                  <p className="mt-1 break-words text-sm text-white/65">
                     {data.telefono} · {data.comuna}
                   </p>
-                  {data.email && <p className="mt-1 text-sm text-white/65">{data.email}</p>}
+                  {data.email && <p className="mt-1 break-words text-sm text-white/65">{data.email}</p>}
                   {fechaCompleta && (
-                    <p className="mt-1 text-sm text-white/65">
+                    <p className="mt-1 break-words text-sm text-white/65">
                       Inicio estimado: {data.fecha.dia}/{data.fecha.mes}/{data.fecha.anio}
                     </p>
                   )}
-                  {data.comentarios && <p className="mt-3 text-sm italic text-white/65">"{data.comentarios}"</p>}
+                  {data.comentarios && <p className="mt-3 break-words text-sm italic text-white/65">"{data.comentarios}"</p>}
                 </div>
               </div>
 
@@ -1016,18 +1016,18 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                 {step === 6 && "Ultima revision antes de enviar la solicitud."}
               </div>
 
-              <div className="flex items-center justify-between gap-3 sm:justify-end">
+              <div className="flex w-full items-center gap-3 sm:w-auto sm:justify-end">
                 {step > 1 ? (
                   <button
                     type="button"
                     onClick={() => setStep((current) => current - 1)}
-                    className="inline-flex items-center gap-1 rounded-2xl border border-white/10 px-4 py-3 text-sm font-medium text-white/70 transition hover:bg-white/5 hover:text-white"
+                    className="inline-flex flex-1 items-center justify-center gap-1 rounded-2xl border border-white/10 px-4 py-3 text-sm font-medium text-white/70 transition hover:bg-white/5 hover:text-white sm:flex-none"
                   >
                     <ChevronLeft size={16} />
                     Volver
                   </button>
                 ) : (
-                  <span />
+                  <span className="hidden sm:block" />
                 )}
 
                 {step < TOTAL_STEPS ? (
@@ -1037,7 +1037,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                       if (canNext()) setStep((current) => current + 1);
                     }}
                     disabled={!canNext()}
-                    className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-35"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-35 sm:flex-none"
                     style={
                       canNext()
                         ? {
@@ -1058,7 +1058,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     type="button"
                     onClick={handleEnviar}
                     disabled={enviando}
-                    className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-[#0A0A0A] transition disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold text-[#0A0A0A] transition disabled:cursor-not-allowed disabled:opacity-60 sm:flex-none"
                     style={{ background: "linear-gradient(135deg, #E6B800, #C9A84C)" }}
                   >
                     {enviando ? "Enviando..." : "Enviar solicitud"}
