@@ -11,7 +11,7 @@ import { gsap } from "gsap";
 // ── Imágenes de prueba (se reemplazan después) ──────
 const IMG_BEFORE = "/trabajos/PHOTO-2026-03-18-20-27-05 2.webp";
 
-const IMG_AFTER = "/trabajos/Image2026-03-2312.02.53.webp";
+const IMG_AFTER = "/trabajos/image15.webp";
 
 
 // ── Datos ───────────────────────────────────────────
