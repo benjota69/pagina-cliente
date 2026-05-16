@@ -411,6 +411,8 @@ export default function PresupuestoModal({ isOpen, onClose }) {
 
   const inputBase =
     "w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:border-[#E6B800] focus:outline-none";
+  const selectBase =
+    "w-full rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white focus:border-[#E6B800] focus:outline-none";
   const inputError =
     "w-full rounded-2xl border border-red-400 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/35 focus:outline-none";
 
@@ -862,10 +864,20 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                   )}
                 </div>
 
-                <select value={data.comuna} onChange={(event) => set("comuna", event.target.value)} className={inputBase}>
-                  <option value="">Selecciona tu comuna *</option>
+                <select
+                  value={data.comuna}
+                  onChange={(event) => set("comuna", event.target.value)}
+                  className={selectBase}
+                >
+                  <option value="" style={{ color: "#6b7280", backgroundColor: "#ffffff" }}>
+                    Selecciona tu comuna *
+                  </option>
                   {COMUNAS.map((comuna) => (
-                    <option key={comuna} value={comuna}>
+                    <option
+                      key={comuna}
+                      value={comuna}
+                      style={{ color: "#111827", backgroundColor: "#ffffff" }}
+                    >
                       {comuna}
                     </option>
                   ))}
