@@ -153,7 +153,7 @@ export default function PreguntasFrecuentes() {
           </div>
 
           <a
-            href="https://wa.me/56944235539"
+            href="https://wa.me/56981449000"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-2 px-7 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-90 active:scale-95"

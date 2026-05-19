@@ -32,7 +32,7 @@ import {
   Calculator,
 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "56944235539";
+const WHATSAPP_NUMBER = "56981449000";
 const TOTAL_STEPS = 6;
 
 const SERVICE_RATES = {
@@ -359,11 +359,23 @@ function SelectCard({ item, selected, onClick }) {
 
 function HelpDisclosure({ summary, children, className = "mt-4" }) {
   return (
-    <details className={`${className} rounded-2xl border border-white/10 bg-white/[0.03] p-4`}>
-      <summary className="cursor-pointer list-none text-sm font-medium text-white/78 marker:hidden">
-        {summary}
+    <details className={`${className} group rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-200 open:border-[#E6B800]/25 open:bg-white/[0.045]`}>
+      <summary className="flex w-full cursor-pointer list-none items-center justify-between gap-3 px-4 py-4 text-left marker:hidden transition-colors duration-200 hover:bg-white/[0.03] focus-visible:outline-none">
+        <span className="flex min-w-0 items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/65 transition-colors duration-200 group-open:border-[#E6B800]/20 group-open:bg-[#E6B800]/10 group-open:text-[#E6B800]">
+            <HelpCircle size={16} />
+          </span>
+          <span className="text-sm font-medium text-white/88 transition-colors duration-200 group-open:text-white">
+            {summary}
+          </span>
+        </span>
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/55 transition-all duration-200 group-hover:text-white/75 group-open:rotate-90 group-open:border-[#E6B800]/20 group-open:text-[#E6B800]">
+          <ChevronRight size={15} />
+        </span>
       </summary>
-      <p className="mt-3 text-sm leading-6 text-white/58">{children}</p>
+      <div className="px-4 pb-4">
+        <p className="border-t border-white/8 pt-3 text-sm leading-6 text-white/62">{children}</p>
+      </div>
     </details>
   );
 }

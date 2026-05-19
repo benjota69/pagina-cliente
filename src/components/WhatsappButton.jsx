@@ -8,7 +8,7 @@ export default function WhatsappButton() {
     <div className="fixed bottom-5 right-5 z-50 flex items-center gap-2">
       {/* Texto expandido — solo visible cuando se toca el ícono en móvil */}
       <a
-        href="https://wa.me/56944235539"
+        href="https://wa.me/56981449000"
         target="_blank"
         rel="noopener noreferrer"
         className={[
@@ -25,7 +25,7 @@ export default function WhatsappButton() {
       {/* Móvil: tooltip con link cuando está expandido */}
       {expanded && (
         <a
-          href="https://wa.me/56944235539"
+          href="https://wa.me/56981449000"
           target="_blank"
           rel="noopener noreferrer"
           className="md:hidden bg-green-500 text-white text-sm font-semibold

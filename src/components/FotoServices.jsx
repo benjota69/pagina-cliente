@@ -304,6 +304,41 @@ const categorias = [
   { key: "terminaciones", label: "Terminaciones", badge: "badge-warning" },
 ];
 
+const trabajosExtra = [
+  {
+    id: 37,
+    categoria: "exterior",
+    src: "/trabajos/catalogo-exterior-casa-hormigon-moderno.webp",
+    titulo: "Casa de hormigón de líneas modernas",
+    descripcion: "Pintura exterior en vivienda contemporánea de dos niveles con muros de hormigón visto y marcos de madera natural. El trabajo refuerza la limpieza visual de la fachada, protege la superficie expuesta y acompaña la arquitectura minimalista con una terminación sobria y uniforme.",
+    comuna: "Concón",
+  },
+  {
+    id: 38,
+    categoria: "interior",
+    src: "/trabajos/catalogo-interior-cocina-lineal-madera.webp",
+    titulo: "Cocina lineal con terminación luminosa",
+    descripcion: "Proyecto interior en cocina de diseño limpio, con muros claros, revestimiento blanco y mobiliario en madera natural combinado con base grafito. La pintura acompaña la entrada de luz, ordena visualmente el espacio y realza la calidez del mobiliario y las lámparas colgantes.",
+    comuna: "Concón",
+  },
+  {
+    id: 39,
+    categoria: "interior",
+    src: "/trabajos/catalogo-interior-living-madera-chimenea.webp",
+    titulo: "Living con acentos de madera y chimenea",
+    descripcion: "Pintura interior y terminaciones en amplio living-comedor con gran entrada de luz natural, cielo de hormigón visto y paneles de madera en muro principal. El resultado equilibra calidez y modernidad, dejando un ambiente limpio, amplio y arquitectónicamente muy bien resuelto.",
+    comuna: "Concón",
+  },
+  {
+    id: 40,
+    categoria: "interior",
+    src: "/trabajos/catalogo-interior-cocina-isla-integrada.webp",
+    titulo: "Cocina con isla central integrada",
+    descripcion: "Renovación interior en cocina contemporánea con isla central, mobiliario en tonos madera clara, cubierta marmolada y hornos empotrados. La pintura y terminaciones refuerzan la luminosidad general del espacio y unifican los materiales para una estética premium y funcional.",
+    comuna: "Concón",
+  },
+];
+
 const getLabel = (key) => categorias.find((c) => c.key === key)?.label ?? key;
 const getBadge = (key) => categorias.find((c) => c.key === key)?.badge ?? "badge-neutral";
 
@@ -316,9 +351,10 @@ export default function FotoServices() {
   const [modal, setModal] = useState(null);
   const [visible, setVisible] = useState(false);
 
+  const catalogoTrabajos = [...trabajos, ...trabajosExtra];
   const filtrados = filtro === "todos"
-    ? trabajos
-    : trabajos.filter((t) => t.categoria === filtro);
+    ? catalogoTrabajos
+    : catalogoTrabajos.filter((t) => t.categoria === filtro);
 
   const modalIndex = modal ? filtrados.findIndex((t) => t.id === modal.id) : -1;
   const prev = () => setModal(filtrados[(modalIndex - 1 + filtrados.length) % filtrados.length]);
