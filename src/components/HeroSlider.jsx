@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function HeroSlider() {
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section id="top" className="relative w-full bg-white overflow-hidden scroll-mt-16">
       <div className="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-16 md:pt-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-8 items-center">
 
@@ -24,8 +24,8 @@ export default function HeroSlider() {
             </h1>
 
             <p className="text-base md:text-lg text-zinc-600 max-w-sm mb-8">
-              Interior, exterior y terminaciones decorativas.
-              Sin sorpresas, sin letra chica.
+              Especialistas en pintura interior y exterior
+              con terminaciones profesionales en la Quinta Región.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">

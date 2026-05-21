@@ -8,6 +8,24 @@ export default function Navbar() {
   const location = useLocation();
   const isHome = location.pathname === "/";
 
+  const handleHomeClick = (event) => {
+    if (!isHome) return;
+
+    event.preventDefault();
+    const heroTop = document.getElementById("top");
+
+    if (heroTop) {
+      heroTop.scrollIntoView({ block: "start" });
+      window.history.replaceState(null, "", "/#top");
+      setOpen(false);
+      return;
+    }
+
+    window.scrollTo(0, 0);
+    window.history.replaceState(null, "", "/#top");
+    setOpen(false);
+  };
+
   // Sombra al hacer scroll
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 10);
@@ -40,7 +58,8 @@ export default function Navbar() {
 
           {/* ── LOGO ── */}
           <Link
-            to="/"
+            to="/#top"
+            onClick={handleHomeClick}
             className="flex items-center gap-2.5 font-black text-xl tracking-tight hover:opacity-80 transition-opacity text-[#E6B800]"
           >
             <img
