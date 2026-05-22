@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   X,
   ChevronRight,
@@ -186,6 +187,7 @@ const initialData = {
   comuna: "",
   fecha: { dia: "", mes: "", anio: "" },
   comentarios: "",
+  aceptaPrivacidad: false,
 };
 
 const getM2Hint = (val) => {
@@ -437,7 +439,13 @@ export default function PresupuestoModal({ isOpen, onClose }) {
     }
     if (step === 4) return true;
     if (step === 5) {
-      return isValidName(data.nombre) && isValidPhone(data.telefono) && !!data.comuna && isValidEmail(data.email);
+      return (
+        isValidName(data.nombre) &&
+        isValidPhone(data.telefono) &&
+        !!data.comuna &&
+        isValidEmail(data.email) &&
+        data.aceptaPrivacidad
+      );
     }
     return true;
   };
@@ -937,6 +945,32 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                     className={`${inputBase} resize-none`}
                   />
                 </div>
+
+                <div className="rounded-3xl border border-[#E6B800]/20 bg-[#E6B800]/8 p-4">
+                  <label className="flex items-start gap-3 text-sm leading-6 text-white/75">
+                    <input
+                      type="checkbox"
+                      checked={data.aceptaPrivacidad}
+                      onChange={(event) => set("aceptaPrivacidad", event.target.checked)}
+                      className="mt-1 h-4 w-4 rounded border-white/20 bg-white/5"
+                      style={{ accentColor: "#E6B800" }}
+                    />
+                    <span>
+                      He leído y acepto la{" "}
+                      <Link
+                        to="/politica-de-privacidad"
+                        className="font-semibold text-[#E6B800] underline underline-offset-4"
+                      >
+                        Política de Privacidad
+                      </Link>
+                      . Autorizo el uso de mis datos para responder esta solicitud de cotización, evaluar mi proyecto y
+                      contactarme respecto de esta solicitud.
+                    </span>
+                  </label>
+                  <p className="mt-3 text-xs leading-5 text-white/50">
+                    Solo usaremos estos datos para atender tu solicitud. No se utilizan para seguimiento comercial no solicitado.
+                  </p>
+                </div>
               </div>
               <HelpDisclosure summary="Que datos son realmente importantes" className="mt-5">
                 Tu numero es lo mas importante. El correo y la fecha son opcionales, pero nos ayudan a responderte mejor si ya tienes una idea mas clara.
@@ -1013,6 +1047,7 @@ export default function PresupuestoModal({ isOpen, onClose }) {
                       Inicio estimado: {data.fecha.dia}/{data.fecha.mes}/{data.fecha.anio}
                     </p>
                   )}
+                  <p className="mt-1 break-words text-sm text-white/65">Privacidad: Aceptada</p>
                   {data.comentarios && <p className="mt-3 break-words text-sm italic text-white/65">"{data.comentarios}"</p>}
                 </div>
               </div>
